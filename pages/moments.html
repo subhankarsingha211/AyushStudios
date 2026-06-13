@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moments Magic Studio — Photography & Videography | Ayush Studios</title>
+  <meta name="description" content="Moments Magic Studio — professional music video production, wedding photography, event coverage and brand shoots in Cooch Behar, West Bengal. Part of Ayush Studios.">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .brand-hero { min-height: 100vh; display: flex; align-items: center; padding-top: var(--nav-h); position: relative; overflow: hidden; }
+    .brand-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 70% 50%, rgba(42,122,111,0.08) 0%, transparent 70%), var(--ink); }
+    .brand-hero-content { position: relative; z-index: 1; max-width: 700px; }
+    .brand-hero-icon { font-size: 56px; display: block; margin-bottom: 28px; }
+    .brand-hero-subtitle { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--teal-accent); margin-bottom: 16px; }
+    .brand-hero-title { font-family: var(--font-display); font-size: clamp(48px,8vw,96px); font-weight: 300; line-height: 1; color: var(--cream); margin-bottom: 24px; }
+    .brand-hero-title em { font-style: italic; color: var(--teal-accent); }
+    .brand-hero-desc { font-size: 16px; color: var(--muted-light); line-height: 1.8; max-width: 540px; margin-bottom: 40px; }
+
+    .services-list { padding: var(--section-pad) 0; border-top: 0.5px solid rgba(42,122,111,0.12); }
+    .services-list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; }
+    @media (max-width: 640px) { .services-list-grid { grid-template-columns: 1fr; } }
+    .service-item { padding: 36px; background: var(--ink-2); }
+    .service-item-icon { font-size: 24px; margin-bottom: 16px; }
+    .service-item-title { font-family: var(--font-display); font-size: 22px; font-weight: 300; color: var(--cream); margin-bottom: 10px; }
+    .service-item-desc { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+    .cta-brand { padding: 100px 0; border-top: 0.5px solid rgba(42,122,111,0.1); text-align: center; }
+    .cta-brand h2 { font-family: var(--font-display); font-size: clamp(32px,5vw,60px); font-weight: 300; color: var(--cream); margin-bottom: 20px; }
+    .cta-brand h2 em { font-style: italic; color: var(--teal-accent); }
+    .cta-brand p { font-size: 14px; color: var(--muted); margin-bottom: 36px; max-width: 440px; margin-left: auto; margin-right: auto; }
+  </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<section class="brand-hero">
+  <div class="brand-hero-bg"></div>
+  <div class="container">
+    <div class="brand-hero-content">
+      <div class="brand-hero-subtitle">Ayush Studios · Photography & Video</div>
+      <h1 class="brand-hero-title">Moments<br><em>Magic</em><br>Studio</h1>
+      <p class="brand-hero-desc">Music videos, weddings, events, and creative shoots. Every frame is crafted with the eye of an artist and the heart of a storyteller.</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <a href="../contact.html" class="btn" style="padding:16px 36px;background:var(--teal-accent);color:white;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Book a Shoot</a>
+        <a href="../services.html#video" class="btn btn-outline" style="border-color:var(--teal-accent);color:var(--teal-accent);">View Packages</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-list">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:48px;">
+      <div class="section-label" style="color:var(--teal-accent);">What We Capture</div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:300;color:var(--cream);">Every moment, beautifully told</h2>
+    </div>
+    <div class="services-list-grid">
+      <div class="service-item reveal">
+        <div class="service-item-title">Music Video Production</div>
+        <p class="service-item-desc">From concept and storyboard to final edit and color grading — we produce cinematic music videos that elevate your song to a visual experience.</p>
+      </div>
+      <div class="service-item reveal reveal-delay-1">
+        <div class="service-item-title">Wedding Photography & Film</div>
+        <p class="service-item-desc">Your wedding day is one of life's most precious stories. We capture it with elegance, emotion, and an eye for the moments that matter most.</p>
+      </div>
+      <div class="service-item reveal">
+        <div class="service-item-title">Event Coverage</div>
+        <p class="service-item-desc">Concerts, corporate events, cultural programs — we document your event with dynamic photography and professional videography.</p>
+      </div>
+      <div class="service-item reveal reveal-delay-1">
+        <div class="service-item-title">Portrait & Brand Shoots</div>
+        <p class="service-item-desc">Artist portraits, band shoots, brand identity photography — powerful imagery that tells your story before you say a single word.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-brand">
+  <div class="container">
+    <div class="reveal">
+      <h2>Every picture tells a<br><em>story. Let's tell yours.</em></h2>
+      <p>Get in touch to discuss your shoot, timeline, and creative vision. We'd love to make magic together.</p>
+      <a href="../contact.html" class="btn" style="padding:16px 36px;background:var(--teal-accent);color:white;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Book a Shoot</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

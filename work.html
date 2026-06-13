@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selected Works — Ayush Studios | Music & Video Portfolio</title>
+  <meta name="description"
+    content="Explore the portfolio of Ayush Studios — 26+ music video productions, devotional recordings, and original compositions by leading Bengali and Hindi artists.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .works-hero {
+      padding: calc(var(--nav-h) + 80px) 0 60px;
+      text-align: center;
+    }
+
+    .works-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 300;
+      color: var(--cream);
+    }
+
+    .works-hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .works-hero p {
+      font-size: 14px;
+      color: var(--muted-light);
+      max-width: 520px;
+      margin: 20px auto 0;
+      line-height: 1.8;
+    }
+
+    .filters-bar {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin: 48px 0 40px;
+      border: 0.5px solid rgba(201, 168, 76, 0.15);
+      display: inline-flex;
+    }
+
+    .filter-btn {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--muted);
+      font-family: var(--font-body);
+      border-right: 0.5px solid rgba(201, 168, 76, 0.15);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .filter-btn:last-child {
+      border-right: none;
+    }
+
+    .filter-btn.active {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    .filter-btn:hover:not(.active) {
+      color: var(--cream);
+      background: rgba(201, 168, 76, 0.08);
+    }
+
+    .filters-wrap {
+      text-align: center;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 80px;
+    }
+
+    @media (max-width: 900px) {
+      .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .work-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      cursor: pointer;
+      transition: opacity 0.4s ease;
+    }
+
+    .work-item.hidden {
+      display: none;
+    }
+
+    .work-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%) brightness(0.7);
+      transition: transform 0.6s ease, filter 0.5s ease;
+    }
+
+    .work-item:hover .work-thumb {
+      transform: scale(1.06);
+      filter: grayscale(0%) brightness(0.55);
+    }
+
+    .work-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13, 12, 10, 0.95) 0%, rgba(13, 12, 10, 0.2) 60%, transparent 100%);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .work-meta {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .work-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      color: var(--cream);
+      line-height: 1.3;
+    }
+
+    .work-artist {
+      font-size: 11px;
+      color: var(--muted-light);
+      margin-top: 3px;
+    }
+
+    .work-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 8px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .work-item:hover .work-desc {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 80px;
+    }
+
+    .work-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .work-play-btn svg {
+      fill: white;
+      width: 18px;
+      height: 18px;
+      margin-left: 3px;
+    }
+
+    .work-item:hover .work-play-btn {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .works-count {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    /* Pagination Styles */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin: 40px 0 60px;
+    }
+
+    .page-btn {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0.5px solid rgba(201, 168, 76, 0.15);
+      background: var(--ink-2);
+      color: var(--muted-light);
+      font-family: var(--font-body);
+      font-size: 13px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .page-btn:hover:not(.disabled):not(.active) {
+      border-color: var(--gold);
+      color: var(--cream);
+      background: rgba(201, 168, 76, 0.05);
+    }
+
+    .page-btn.active {
+      background: var(--gold);
+      color: var(--ink);
+      border-color: var(--gold);
+    }
+
+    .page-btn.disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    /* Search Box Styles */
+    .search-wrap {
+      text-align: center;
+      margin-bottom: 32px;
+      margin-top: -16px;
+    }
+
+    .search-box {
+      display: inline-flex;
+      align-items: center;
+      background: var(--ink-2);
+      border: 0.5px solid rgba(201, 168, 76, 0.15);
+      padding: 12px 20px;
+      width: 100%;
+      max-width: 480px;
+      transition: var(--transition);
+    }
+
+    .search-box:focus-within {
+      border-color: var(--gold);
+      box-shadow: 0 0 10px rgba(201, 168, 76, 0.08);
+    }
+
+    .search-icon {
+      fill: var(--gold);
+      width: 18px;
+      height: 18px;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    #project-search {
+      background: transparent;
+      border: none;
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 13px;
+      width: 100%;
+      outline: none;
+    }
+
+    #project-search::placeholder {
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="nav-placeholder"></div>
+
+  <section class="works-hero">
+    <div class="container">
+      <div class="section-label" style="justify-content:center;">Portfolio</div>
+      <h1>Selected <em>Works</em></h1>
+      <p>A cinematic collection of our finest audio and visual productions — 26+ projects, multiple genres, countless
+        stories told.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Search Box -->
+    <div class="search-wrap reveal">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24">
+          <path
+            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+        </svg>
+        <input type="text" id="project-search" placeholder="Search by song title or artist name..."
+          oninput="handleSearch()">
+      </div>
+    </div>
+
+    <div class="filters-wrap reveal">
+      <div class="filters-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="hindi">Hindi</button>
+        <button class="filter-btn" data-filter="bengali">Bengali</button>
+      </div>
+    </div>
+
+    <div class="works-grid" id="works-grid">
+      <!-- Projects injected by JS -->
+    </div>
+
+    <div class="works-count" id="works-count"></div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const PROJECTS = [
+      { id: 'GQ-6ArA3EWg', title: 'O Maa Tomar Agomon', artist: 'Saini Ghosh', type: 'Music Video', lang: 'bengali', year: '2024', desc: 'Beautiful Durga Puja composition with complete arrangement, mixing, and mastering.', tags: ['bengali', 'music-video'] },
+      { id: 'ebvrfM9vub4', title: 'Aao Milo Chalen', artist: 'Saini Ghosh', type: 'Music Video', lang: 'hindi', year: '2025', desc: 'Captivating production with professional recording, arrangement, and radio-ready mixing.', tags: ['hindi', 'music-video'] },
+      { id: '-tuLd5C_H8w', title: 'Devi Vandana (Puja 2025)', artist: 'Abritte Talukder', type: 'Devotional', lang: 'bengali', year: '2025', desc: 'Spiritual devotional composition for Puja 2025, featuring complete arrangement and mastering.', tags: ['bengali', 'devotional'] },
+      { id: 'Mzz4M9ra6SM', title: 'Aao Na', artist: 'Abritte Talukder', type: 'Music Video', lang: 'hindi', year: '2025', desc: 'Melodious Hindi track with comprehensive production from recording to mastering.', tags: ['hindi', 'music-video'] },
+      { id: 'bCZxEQfj7_M', title: 'Roz Roz Ankhon Tale', artist: 'Abritte Talukder', type: 'Music Video', lang: 'hindi', year: '2025', desc: 'Enchanting musical production with expertly crafted arrangements and pristine audio.', tags: ['hindi', 'music-video'] },
+      { id: 'CTK7kmYiFDo', title: 'Amare Debona Bhulite', artist: 'Ishika Saha', type: 'Music Video', lang: 'bengali', year: '2024', desc: 'Beautiful Bengali composition with complete production from arrangement to final mix.', tags: ['bengali', 'music-video'] },
+      { id: 'mE2RE82hDmc', title: 'Preme Pora Baron', artist: 'Ishika Saha', type: 'Music Video', lang: 'bengali', year: '2024', desc: 'Romantic Bengali track with professional recording, mixing and mastering.', tags: ['bengali', 'music-video'] },
+      { id: 'cuhJehie0R0', title: 'Ure Jaa Re Pakhi', artist: 'Ishika Saha', type: 'Music Video', lang: 'bengali', year: '2024', desc: 'Soulful Bengali melody with comprehensive production and professional audio engineering.', tags: ['bengali', 'music-video'] },
+      { id: 'oXnYnYSea7g', title: 'Roye Jabe Nirobe', artist: 'Ishika Saha', type: 'Music Video', lang: 'bengali', year: '2024', desc: 'Emotionally resonant track with meticulous attention to mixing and mastering.', tags: ['bengali', 'music-video'] },
+      { id: 'qiVxcingptg', title: 'O Je Mane Na Mana', artist: 'Ishika Saha', type: 'Music Video', lang: 'bengali', year: '2024', desc: 'Captivating production showcasing professional arrangement and vocal recording.', tags: ['bengali', 'music-video'] },
+      { id: 'jnFubzrr-1E', title: 'Seshbarer Moto Toke Chai', artist: 'Ishika Saha', type: 'Music Video', lang: 'bengali', year: '2024', desc: 'Heartfelt composition from recording to mastering, delivering radio-ready sound.', tags: ['bengali', 'music-video'] },
+      { id: 'waJWXDn1swY', title: 'Bawra Mann', artist: 'Ishika Saha', type: 'Music Video', lang: 'hindi', year: '2024', desc: 'Compelling Hindi track with professional arrangement, mixing and mastering.', tags: ['hindi', 'music-video'] },
+      { id: 'qc0spEfKqz0', title: 'Bahu Manaratha', artist: 'Ishika Saha', type: 'Music Video', lang: 'bengali', year: '2024', desc: 'Melodious Bengali composition with expert recording and audio engineering.', tags: ['bengali', 'music-video'] },
+      { id: 'gCak1Q8tS1U', title: 'Jashn-E-Bahara', artist: 'Ishika Saha', type: 'Music Video', lang: 'hindi', year: '2024', desc: 'Vibrant production from vocal recording to final mastering, achieving professional quality.', tags: ['hindi', 'music-video'] },
+      { id: 'i6dud7QMsB4', title: 'Raat Chhuye Jak', artist: 'Ishika Saha', type: 'Music Video', lang: 'bengali', year: '2024', desc: 'Atmospheric Bengali track with meticulous sound design, mixing and mastering.', tags: ['bengali', 'music-video'] },
+      { id: 'Hmq5ciZrk5I', title: 'Badhone Badhibo', artist: 'Ishika Saha', type: 'Music Video', lang: 'bengali', year: '2024', desc: 'Powerful composition with professional music production from arrangement to final mix.', tags: ['bengali', 'music-video'] },
+      { id: '5iRBK6DGiuI', title: 'Maa Dugga', artist: 'Ishika Saha', type: 'Devotional', lang: 'bengali', year: '2024', desc: 'Devotional masterpiece featuring complete arrangement, showcasing expertise in Bengali music.', tags: ['bengali', 'devotional'] },
+      { id: 'D5Ij6VKFycM', title: 'Teri Umeed Tera Intezaar', artist: 'Ayuska Bhowmika', type: 'Music Video', lang: 'hindi', year: '2023', desc: 'Soulful Hindi composition with professional recording, arrangement and mixing.', tags: ['hindi', 'music-video'] },
+      { id: 'CMXTciLjZME', title: 'Aponar Cheye (Nazrul Geeti)', artist: 'Ayuska Bhowmika', type: 'Nazrul Geeti', lang: 'bengali', year: '2023', desc: 'Traditional Nazrul Geeti production showcasing Bengali classical music expertise.', tags: ['bengali', 'music-video', 'devotional'] },
+      { id: 'T922Ci3bGfo', title: 'Suna Hai', artist: 'Ayuska Bhowmika', type: 'Music Video', lang: 'hindi', year: '2023', desc: 'Melodious track with complete music production from arrangement to mastering.', tags: ['hindi', 'music-video'] },
+      { id: '_H-pPr5nVPo', title: 'Tere Bin', artist: 'Ayuska Bhowmika', type: 'Music Video', lang: 'hindi', year: '2023', desc: 'Emotive Hindi ballad with professional recording, mixing and mastering.', tags: ['hindi', 'music-video'] },
+      { id: 'EhfynjoKGus', title: 'Brindabono Bilashini', artist: 'Puja Chakraborty', type: 'Devotional', lang: 'bengali', year: '2022', desc: 'Traditional devotional composition preserving authentic Bengali musical heritage.', tags: ['bengali', 'devotional'] },
+      { id: '8VFsog0_PZw', title: 'Jago Uma', artist: 'Puja Chakraborty', type: 'Devotional', lang: 'bengali', year: '2022', desc: 'Powerful devotional track with complete production services from arrangement to mastering.', tags: ['bengali', 'devotional'] },
+      { id: '3xJ4nhFDqyU', title: 'Eseche Boisakh', artist: 'Memory Lane', type: 'Music Video', lang: 'bengali', year: '2023', desc: 'Soulful Bengali composition celebrating Poila Baisakh, with music arrangement by Ayush Paul.', tags: ['bengali', 'music-video'] },
+      { id: 'IXN4RVIJQjg', title: 'Agomoner Daak', artist: 'Rajdeep Barman & Ayuska Bhowmik', type: 'Music Video', lang: 'bengali', year: '2022', desc: 'Festive Durga Puja special composition featuring professional mixing and mastering by Ayush Paul.', tags: ['bengali', 'music-video'] },
+    ];
+
+    let currentWorkPage = 1;
+    const ITEMS_PER_PAGE = 6;
+    let currentFilter = 'all';
+    let currentSearchQuery = '';
+
+    function renderProjects(page = 1) {
+      currentWorkPage = page;
+      const grid = document.getElementById('works-grid');
+      const countEl = document.getElementById('works-count');
+
+      // Sort projects by release year (newest first / descending)
+      const sortedProjects = [...PROJECTS].sort((a, b) => b.year.localeCompare(a.year));
+
+      // Filter by category
+      let filtered = currentFilter === 'all' ? sortedProjects : sortedProjects.filter(p => p.tags.includes(currentFilter));
+
+      // Filter by search query (song title or artist name)
+      if (currentSearchQuery) {
+        filtered = filtered.filter(p =>
+          p.title.toLowerCase().includes(currentSearchQuery) ||
+          p.artist.toLowerCase().includes(currentSearchQuery)
+        );
+      }
+
+      const totalItems = filtered.length;
+      const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE) || 1;
+
+      // Clamp page
+      if (currentWorkPage > totalPages) currentWorkPage = totalPages;
+      if (currentWorkPage < 1) currentWorkPage = 1;
+
+      const startIndex = (currentWorkPage - 1) * ITEMS_PER_PAGE;
+      const endIndex = startIndex + ITEMS_PER_PAGE;
+      const pageProjects = filtered.slice(startIndex, endIndex);
+
+      if (pageProjects.length === 0) {
+        grid.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--muted-light);">
+        <p style="font-size: 16px; margin-bottom: 8px;">No projects found</p>
+        <p style="font-size: 13px; color: var(--muted);">Try adjusting your search query or filter category.</p>
+      </div>
+    `;
+        countEl.textContent = 'Showing 0 of 0 projects';
+        renderPagination(0);
+        return;
+      }
+
+      grid.innerHTML = pageProjects.map(p => `
+    <a href="https://www.youtube.com/watch?v=${p.id}" target="_blank" class="work-item">
+      <img class="work-thumb" src="https://img.youtube.com/vi/${p.id}/maxresdefault.jpg" alt="${p.title}" loading="lazy">
+      <div class="work-overlay">
+        <div class="work-meta">${p.type} · ${p.lang.charAt(0).toUpperCase() + p.lang.slice(1)} · ${p.year}</div>
+        <div class="work-title">${p.title}</div>
+        <div class="work-artist">${p.artist}</div>
+        <div class="work-desc">${p.desc}</div>
+      </div>
+      <div class="work-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+    </a>
+  `).join('');
+
+      countEl.textContent = `Showing ${pageProjects.length} of ${totalItems} projects (Page ${currentWorkPage} of ${totalPages})`;
+      renderPagination(totalPages);
+    }
+
+    function renderPagination(totalPages) {
+      const container = document.getElementById('pagination');
+      if (!container) return;
+
+      if (totalPages <= 1) {
+        container.innerHTML = '';
+        return;
+      }
+
+      let html = '';
+
+      // Prev button
+      html += `<button class="page-btn ${currentWorkPage === 1 ? 'disabled' : ''}" onclick="changePage(${currentWorkPage - 1})" ${currentWorkPage === 1 ? 'disabled' : ''}>&larr;</button>`;
+
+      for (let i = 1; i <= totalPages; i++) {
+        html += `<button class="page-btn ${i === currentWorkPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+      }
+
+      // Next button
+      html += `<button class="page-btn ${currentWorkPage === totalPages ? 'disabled' : ''}" onclick="changePage(${currentWorkPage + 1})" ${currentWorkPage === totalPages ? 'disabled' : ''}>&rarr;</button>`;
+
+      container.innerHTML = html;
+    }
+
+    function changePage(page) {
+      renderProjects(page);
+      // Smooth scroll back to top of the grid
+      const worksGrid = document.getElementById('works-grid');
+      if (worksGrid) {
+        worksGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function handleSearch() {
+      const searchInput = document.getElementById('project-search');
+      if (searchInput) {
+        currentSearchQuery = searchInput.value.trim().toLowerCase();
+        renderProjects(1);
+      }
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderProjects(1);
+      });
+    });
+
+    renderProjects(1);
+  </script>
+</body>
+
+</html>
