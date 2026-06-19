@@ -10,7 +10,6 @@ const NAV_HTML = `
   <div class="nav-inner">
     <a href="${rootPrefix}index.html" class="nav-logo">
       <div class="nav-logo-main">Ayush Studios</div>
-      <div class="nav-logo-sub">Sound · Vision · Emotion</div>
     </a>
     <div class="nav-links">
       <a href="${rootPrefix}index.html">Home</a>
@@ -46,6 +45,14 @@ const NAV_HTML = `
 
 // ── SHARED FOOTER HTML ──
 const FOOTER_HTML = `
+<div class="back-to-top-container">
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top-btn" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+    <span>Back to Top</span>
+  </button>
+</div>
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -54,8 +61,8 @@ const FOOTER_HTML = `
         <div class="footer-logo-sub">Sound · Vision · Emotion</div>
         <p class="footer-tagline">"Crafting sonic narratives<br>and visual symphonies."</p>
         <div style="margin-top:24px; display:flex; gap:12px;">
-          <a href="https://www.youtube.com/@AyushStudios" target="_blank" class="btn btn-outline" style="padding:10px 20px; font-size:10px;">YouTube</a>
-          <a href="https://wa.me/917001XXXXXX" target="_blank" class="btn btn-gold" style="padding:10px 20px; font-size:10px;">WhatsApp</a>
+          <a href="${rootPrefix}work.html" target="_blank" class="btn btn-outline" style="padding:10px 20px; font-size:10px;">Works</a>
+          <a href="${rootPrefix}services.html" target="_blank" class="btn btn-gold" style="padding:10px 20px; font-size:10px;">Services</a>
         </div>
       </div>
       <div>
@@ -93,10 +100,10 @@ const FOOTER_HTML = `
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 Ayush Studios. All rights reserved. Crafted with intention.</span>
       <div class="footer-socials">
-        <a href="https://www.youtube.com/@AyushStudios" target="_blank" title="YouTube">
+        <a href="https://youtube.com/@ayushpaulofficial7?si=ZauTlD4HOKteV7SR" target="_blank" title="YouTube">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23 7s-.3-2-1.2-2.7c-1.1-1.2-2.4-1.2-3-1.3C16.2 3 12 3 12 3s-4.2 0-6.8.2c-.6.1-1.9.1-3 1.3C1.3 5 1 7 1 7S.7 9.1.7 11.2v1.9C.7 15.2 1 17.3 1 17.3s.3 2 1.2 2.7c1.1 1.2 2.6 1.1 3.3 1.2C7.2 21.4 12 21.5 12 21.5s4.2 0 6.8-.3c.6-.1 1.9-.1 3-1.3.9-.7 1.2-2.7 1.2-2.7s.3-2.1.3-4.2v-1.8C23.3 9.1 23 7 23 7zm-13.5 8.5V8.7l8.1 3.4-8.1 3.4z"/></svg>
         </a>
-        <a href="https://instagram.com/ayushstudios" target="_blank" title="Instagram">
+        <a href="https://www.instagram.com/ayushpaulofficial7?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="Instagram">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
         </a>
         <a href="https://wa.me/917001XXXXXX" target="_blank" title="WhatsApp">
