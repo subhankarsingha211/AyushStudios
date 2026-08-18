@@ -677,10 +677,23 @@ img {
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Auto-reveal: applied globally via JS to content elements */
+.auto-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--ar-delay, 0s);
+}
+
+.auto-reveal.ar-visible {
   opacity: 1;
   transform: translateY(0);
 }

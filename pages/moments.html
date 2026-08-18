@@ -1,92 +1,505 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moments Magic Studio — Photography & Videography | Ayush Studios</title>
-  <meta name="description" content="Moments Magic Studio — professional music video production, wedding photography, event coverage and brand shoots in Cooch Behar, West Bengal. Part of Ayush Studios.">
+  <meta name="description"
+    content="Moments Magic Studio — professional music video production, wedding photography, event coverage and brand shoots in Cooch Behar, West Bengal. Part of Ayush Studios.">
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    .brand-hero { min-height: 100vh; display: flex; align-items: center; padding-top: var(--nav-h); position: relative; overflow: hidden; }
-    .brand-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 70% 50%, rgba(42,122,111,0.08) 0%, transparent 70%), var(--ink); }
-    .brand-hero-content { position: relative; z-index: 1; max-width: 700px; }
-    .brand-hero-icon { font-size: 56px; display: block; margin-bottom: 28px; }
-    .brand-hero-subtitle { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--teal-accent); margin-bottom: 16px; }
-    .brand-hero-title { font-family: var(--font-display); font-size: clamp(48px,8vw,96px); font-weight: 300; line-height: 1; color: var(--cream); margin-bottom: 24px; }
-    .brand-hero-title em { font-style: italic; color: var(--teal-accent); }
-    .brand-hero-desc { font-size: 16px; color: var(--muted-light); line-height: 1.8; max-width: 540px; margin-bottom: 40px; }
+    .brand-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: var(--nav-h);
+      position: relative;
+      overflow: hidden;
+    }
 
-    .services-list { padding: var(--section-pad) 0; border-top: 0.5px solid rgba(42,122,111,0.12); }
-    .services-list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; }
-    @media (max-width: 640px) { .services-list-grid { grid-template-columns: 1fr; } }
-    .service-item { padding: 36px; background: var(--ink-2); }
-    .service-item-icon { font-size: 24px; margin-bottom: 16px; }
-    .service-item-title { font-family: var(--font-display); font-size: 22px; font-weight: 300; color: var(--cream); margin-bottom: 10px; }
-    .service-item-desc { font-size: 13px; color: var(--muted); line-height: 1.8; }
+    .brand-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 70% 50%, rgba(42, 122, 111, 0.08) 0%, transparent 70%), var(--ink);
+    }
 
-    .cta-brand { padding: 100px 0; border-top: 0.5px solid rgba(42,122,111,0.1); text-align: center; }
-    .cta-brand h2 { font-family: var(--font-display); font-size: clamp(32px,5vw,60px); font-weight: 300; color: var(--cream); margin-bottom: 20px; }
-    .cta-brand h2 em { font-style: italic; color: var(--teal-accent); }
-    .cta-brand p { font-size: 14px; color: var(--muted); margin-bottom: 36px; max-width: 440px; margin-left: auto; margin-right: auto; }
+    .brand-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .brand-hero-subtitle {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--teal-accent);
+      margin-bottom: 16px;
+    }
+
+    .brand-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--cream);
+      margin-bottom: 24px;
+    }
+
+    .brand-hero-title em {
+      font-style: italic;
+      color: var(--teal-accent);
+    }
+
+    .brand-hero-desc {
+      font-size: 16px;
+      color: var(--muted-light);
+      line-height: 1.8;
+      max-width: 540px;
+      margin-bottom: 40px;
+    }
+
+    /* New badges */
+    .new-badge-container {
+      display: inline-flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .new-badge {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--teal-accent);
+      padding: 4px 12px;
+      font-weight: 500;
+      border-radius: 2px;
+    }
+
+    .status-badge {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal-accent);
+      border: 0.5px solid var(--teal-accent);
+      padding: 4px 12px;
+      font-weight: 500;
+      border-radius: 2px;
+    }
+
+    /* Services list */
+    .services-list {
+      padding: var(--section-pad) 0;
+      border-top: 0.5px solid rgba(42, 122, 111, 0.12);
+    }
+
+    .services-list-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+    }
+
+    @media (max-width: 640px) {
+      .services-list-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-item {
+      padding: 36px;
+      background: var(--ink-2);
+      transition: var(--transition);
+    }
+
+    .service-item:hover {
+      background: #13201e;
+    }
+
+    .service-item-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 10px;
+    }
+
+    .service-item-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 18px;
+      color: var(--teal-accent);
+      opacity: 0.85;
+      transition: opacity var(--transition);
+    }
+
+    .service-item:hover .service-item-icon {
+      opacity: 1;
+    }
+
+    .service-item-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* Synergy Section */
+    .synergy-section {
+      padding: var(--section-pad) 0;
+      background: linear-gradient(to bottom, var(--ink), var(--ink-2));
+      border-top: 0.5px solid rgba(42, 122, 111, 0.12);
+    }
+
+    .synergy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .synergy-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .synergy-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .synergy-content h2 em {
+      font-style: italic;
+      color: var(--teal-accent);
+    }
+
+    .synergy-content p {
+      font-size: 14px;
+      color: var(--muted-light);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .synergy-visual {
+      border: 0.5px solid rgba(42, 122, 111, 0.25);
+      background: rgba(42, 122, 111, 0.02);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .synergy-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 10% 10%, rgba(42, 122, 111, 0.08) 0%, transparent 80%);
+      pointer-events: none;
+    }
+
+    .synergy-quote {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .synergy-author {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal-accent);
+      font-weight: 500;
+    }
+
+    /* Pillars Section */
+    .pillars-section {
+      padding: var(--section-pad) 0;
+      border-top: 0.5px solid rgba(42, 122, 111, 0.12);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 768px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    .pillar-card {
+      padding: 32px;
+      background: var(--ink-2);
+      border: 0.5px solid rgba(42, 122, 111, 0.1);
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+
+    .pillar-card:hover {
+      border-color: var(--teal-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(42, 122, 111, 0.05);
+    }
+
+    .pillar-num {
+      font-family: var(--font-caps);
+      font-size: 36px;
+      color: rgba(42, 122, 111, 0.2);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--cream);
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* Launch CTA Section */
+    .launch-cta {
+      padding: 100px 0;
+      background: radial-gradient(circle at 50% 50%, rgba(42, 122, 111, 0.08) 0%, transparent 70%), var(--ink-2);
+      border-top: 0.5px solid rgba(42, 122, 111, 0.12);
+      text-align: center;
+    }
+
+    .launch-cta-box {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px;
+      border: 0.5px solid rgba(42, 122, 111, 0.2);
+      background: rgba(13, 12, 10, 0.6);
+      backdrop-filter: blur(12px);
+      border-radius: 4px;
+    }
+
+    @media (max-width: 640px) {
+      .launch-cta-box {
+        padding: 24px;
+      }
+    }
+
+    .launch-cta h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .launch-cta h2 em {
+      font-style: italic;
+      color: var(--teal-accent);
+    }
+
+    .launch-cta p {
+      font-size: 14px;
+      color: var(--muted-light);
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+
+    .launch-offer-badge {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: rgba(42, 122, 111, 0.15);
+      color: var(--teal-accent);
+      border: 0.5px solid var(--teal-accent);
+      padding: 6px 16px;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
   </style>
 </head>
+
 <body>
-<div id="nav-placeholder"></div>
+  <div id="nav-placeholder"></div>
 
-<section class="brand-hero">
-  <div class="brand-hero-bg"></div>
-  <div class="container">
-    <div class="brand-hero-content">
-      <div class="brand-hero-subtitle">Ayush Studios · Photography & Video</div>
-      <h1 class="brand-hero-title">Moments<br><em>Magic</em><br>Studio</h1>
-      <p class="brand-hero-desc">Music videos, weddings, events, and creative shoots. Every frame is crafted with the eye of an artist and the heart of a storyteller.</p>
-      <div style="display:flex;gap:16px;flex-wrap:wrap;">
-        <a href="../contact.html" class="btn" style="padding:16px 36px;background:var(--teal-accent);color:white;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Book a Shoot</a>
-        <a href="../services.html#video" class="btn btn-outline" style="border-color:var(--teal-accent);color:var(--teal-accent);">View Packages</a>
+  <section class="brand-hero">
+    <div class="brand-hero-bg"></div>
+    <div class="container">
+      <div class="brand-hero-content">
+        <div class="new-badge-container reveal">
+          <span class="new-badge">New Studio Addition</span>
+          <span class="status-badge">Grand Launch Opening</span>
+        </div>
+        <div class="brand-hero-subtitle reveal">Ayush Studios · Photography & Video</div>
+        <h1 class="brand-hero-title reveal">Moments<br><em>Magic</em><br>Studio</h1>
+        <p class="brand-hero-desc reveal">We are proud to introduce our brand new high-end visual wing. From cinematic
+          music videos to luxury wedding cinema, brand campaigns, and creative portraiture — we craft every frame with
+          visual depth and artistic intent.</p>
+        <div class="reveal" style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="../services.html" class="btn"
+            style="padding:16px 36px;background:var(--teal-accent);color:white;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Book
+            a Session</a>
+          <a href="../services.html#video" class="btn btn-outline"
+            style="border-color:var(--teal-accent);color:var(--teal-accent);">View Launch Packages</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="services-list">
-  <div class="container">
-    <div class="reveal" style="margin-bottom:48px;">
-      <div class="section-label" style="color:var(--teal-accent);">What We Capture</div>
-      <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:300;color:var(--cream);">Every moment, beautifully told</h2>
-    </div>
-    <div class="services-list-grid">
-      <div class="service-item reveal">
-        <div class="service-item-title">Music Video Production</div>
-        <p class="service-item-desc">From concept and storyboard to final edit and color grading — we produce cinematic music videos that elevate your song to a visual experience.</p>
-      </div>
-      <div class="service-item reveal reveal-delay-1">
-        <div class="service-item-title">Wedding Photography & Film</div>
-        <p class="service-item-desc">Your wedding day is one of life's most precious stories. We capture it with elegance, emotion, and an eye for the moments that matter most.</p>
-      </div>
-      <div class="service-item reveal">
-        <div class="service-item-title">Event Coverage</div>
-        <p class="service-item-desc">Concerts, corporate events, cultural programs — we document your event with dynamic photography and professional videography.</p>
-      </div>
-      <div class="service-item reveal reveal-delay-1">
-        <div class="service-item-title">Portrait & Brand Shoots</div>
-        <p class="service-item-desc">Artist portraits, band shoots, brand identity photography — powerful imagery that tells your story before you say a single word.</p>
+  <!-- SYNERGY SECTION -->
+  <section class="synergy-section">
+    <div class="container">
+      <div class="synergy-grid">
+        <div class="synergy-content reveal">
+          <div class="section-label" style="color:var(--teal-accent);">Sound meets Vision</div>
+          <h2>One creative standard.<br><em>Two spaces.</em></h2>
+          <p>For years, Ayush Studios has been recognized for absolute audio precision through our signature music and
+            sound production studio, <strong>Harmonics Heaven</strong>.</p>
+          <p>With the opening of <strong>Moments Magic Studio</strong>, we are closing the gap between sound and vision.
+            By combining high-fidelity sound and premium cinematography under a single director, we ensure your release
+            is aesthetically cohesive, technically flawless, and deeply resonant.</p>
+          <a href="../about.html" class="btn btn-ghost"
+            style="color:var(--teal-accent); border-bottom-color:rgba(42,122,111,0.3);">Our Full Story →</a>
+        </div>
+        <div class="synergy-visual reveal reveal-delay-1">
+          <p class="synergy-quote">"A song is only half of the story. The other half is the visual world it lives in.
+            Moments Magic exists to build that world with cinematic composition, artful color grading, and authentic
+            emotion."</p>
+          <div class="synergy-author">Ayush Paul — Founder & Creative Director</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="cta-brand">
-  <div class="container">
-    <div class="reveal">
-      <h2>Every picture tells a<br><em>story. Let's tell yours.</em></h2>
-      <p>Get in touch to discuss your shoot, timeline, and creative vision. We'd love to make magic together.</p>
-      <a href="../contact.html" class="btn" style="padding:16px 36px;background:var(--teal-accent);color:white;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Book a Shoot</a>
+  <!-- PILLARS SECTION -->
+  <section class="pillars-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto 48px;">
+        <div class="section-label" style="color:var(--teal-accent); justify-content:center;">Our Direction</div>
+        <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:300;color:var(--cream);">
+          Our Creative Philosophy</h2>
+        <p style="font-size:14px; color:var(--muted-light); margin-top:16px;">We don't rely on preset styling. Every
+          production is built on custom concepts and professional visual guidelines.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card reveal">
+          <div class="pillar-num">01</div>
+          <h3 class="pillar-title">Cinematic Grading & Tone</h3>
+          <p class="pillar-desc">Inspired by the textures and latitude of classic analog film. We construct custom LUTs
+            for every music video, utilizing rich shadow depth, natural skin tones, and tailored HSL color harmony.</p>
+        </div>
+        <div class="pillar-card reveal reveal-delay-1">
+          <div class="pillar-num">02</div>
+          <h3 class="pillar-title">Narrative Storyboarding</h3>
+          <p class="pillar-desc">We begin every music video and commercial project with a custom storyboard. Scripting
+            blocking, camera motion, and lighting states before a single frame is ever rolled.</p>
+        </div>
+        <div class="pillar-card reveal">
+          <div class="pillar-num">03</div>
+          <h3 class="pillar-title">Candid Documentary Style</h3>
+          <p class="pillar-desc">For luxury weddings and portraits, we bypass stiff, awkward posing. Instead, we capture
+            authentic expressions, fleeting laughter, and raw emotional movements in real-time.</p>
+        </div>
+        <div class="pillar-card reveal reveal-delay-1">
+          <div class="pillar-num">04</div>
+          <h3 class="pillar-title">High-End Production Gear</h3>
+          <p class="pillar-desc">Leveraging state-of-the-art camera systems, dual card recording workflows, premium
+            prime lenses, advanced gimbals, and dedicated wireless audio capture on set.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div id="footer-placeholder"></div>
-<script src="../js/components.js"></script>
-<script src="../js/main.js"></script>
+  <section class="services-list">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:48px;">
+        <div class="section-label" style="color:var(--teal-accent);">What We Capture</div>
+        <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:300;color:var(--cream);">
+          Our Visual Services</h2>
+      </div>
+      <div class="services-list-grid">
+        <div class="service-item reveal">
+          <svg class="service-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+            <polygon points="10 11 15 14 10 17 10 11" fill="currentColor" stroke="none"/>
+          </svg>
+          <h3 class="service-item-title">Music Video Production</h3>
+          <p class="service-item-desc">From concept and storyboard to final edit and color grading — we produce
+            cinematic music videos that elevate your song to a visual experience.</p>
+        </div>
+        <div class="service-item reveal reveal-delay-1">
+          <svg class="service-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <h3 class="service-item-title">Wedding Photography &amp; Film</h3>
+          <p class="service-item-desc">Your wedding day is one of life's most precious stories. We capture it with
+            elegance, emotion, and an eye for the moments that matter most.</p>
+        </div>
+        <div class="service-item reveal">
+          <svg class="service-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/>
+            <path d="M9 2v4"/>
+            <path d="M15 2v4"/>
+            <path d="M8 12h8"/>
+            <path d="M8 16h5"/>
+          </svg>
+          <h3 class="service-item-title">Event Coverage</h3>
+          <p class="service-item-desc">Concerts, corporate events, cultural programs — we document your event with
+            dynamic photography and professional videography.</p>
+        </div>
+        <div class="service-item reveal reveal-delay-1">
+          <svg class="service-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/>
+          </svg>
+          <h3 class="service-item-title">Portrait &amp; Brand Shoots</h3>
+          <p class="service-item-desc">Artist portraits, band shoots, brand identity photography — powerful imagery that
+            tells your story before you say a single word.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRAND LAUNCH CTA SECTION -->
+  <section class="launch-cta">
+    <div class="container">
+      <div class="launch-cta-box reveal">
+        <div class="launch-offer-badge">Grand Launch Offer</div>
+        <h2>Join Our Debut Catalog</h2>
+        <p>To celebrate the opening of Moments Magic Studio, we are currently booking our initial debut projects. Book
+          one of our launch slots to receive exclusive introductory packages and direct, personalized creative direction
+          by Ayush.</p>
+        <a href="../services.html" class="btn"
+          style="padding:16px 36px;background:var(--teal-accent);color:white;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Book
+          a Launch Slot</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
 </body>
+
 </html>

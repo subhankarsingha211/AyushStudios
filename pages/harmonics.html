@@ -9,10 +9,6 @@
     content="Harmonics Heaven Studio — premium music recording, mixing, mastering, and arrangement studio in Cooch Behar, West Bengal. Part of Ayush Studios.">
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    :root {
-      --accent: #C9A84C;
-    }
-
     .brand-hero {
       min-height: 100vh;
       display: flex;
@@ -32,12 +28,6 @@
       position: relative;
       z-index: 1;
       max-width: 700px;
-    }
-
-    .brand-hero-icon {
-      font-size: 56px;
-      display: block;
-      margin-bottom: 28px;
     }
 
     .brand-hero-subtitle {
@@ -70,9 +60,40 @@
       margin-bottom: 40px;
     }
 
+    /* Badges */
+    .new-badge-container {
+      display: inline-flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .new-badge {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--gold);
+      padding: 4px 12px;
+      font-weight: 600;
+      border-radius: 2px;
+    }
+
+    .status-badge {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 0.5px solid var(--gold);
+      padding: 4px 12px;
+      font-weight: 500;
+      border-radius: 2px;
+    }
+
+    /* Services list */
     .services-list {
       padding: var(--section-pad) 0;
-      border-top: 0.5px solid rgba(201, 168, 76, 0.08);
+      border-top: 0.5px solid rgba(201, 168, 76, 0.12);
     }
 
     .services-list-grid {
@@ -90,11 +111,24 @@
     .service-item {
       padding: 36px;
       background: var(--ink-2);
+      transition: var(--transition);
+    }
+
+    .service-item:hover {
+      background: #221d12;
     }
 
     .service-item-icon {
-      font-size: 24px;
-      margin-bottom: 16px;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 18px;
+      color: var(--gold);
+      opacity: 0.85;
+      transition: opacity var(--transition);
+    }
+
+    .service-item:hover .service-item-icon {
+      opacity: 1;
     }
 
     .service-item-title {
@@ -111,9 +145,142 @@
       line-height: 1.8;
     }
 
+    /* Synergy Section */
+    .synergy-section {
+      padding: var(--section-pad) 0;
+      background: linear-gradient(to bottom, var(--ink), var(--ink-2));
+      border-top: 0.5px solid rgba(201, 168, 76, 0.12);
+    }
+
+    .synergy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .synergy-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .synergy-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .synergy-content h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .synergy-content p {
+      font-size: 14px;
+      color: var(--muted-light);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .synergy-visual {
+      border: 0.5px solid rgba(201, 168, 76, 0.25);
+      background: rgba(201, 168, 76, 0.02);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .synergy-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 10% 10%, rgba(201, 168, 76, 0.08) 0%, transparent 80%);
+      pointer-events: none;
+    }
+
+    .synergy-quote {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .synergy-author {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* Pillars Section */
+    .pillars-section {
+      padding: var(--section-pad) 0;
+      border-top: 0.5px solid rgba(201, 168, 76, 0.12);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 768px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    .pillar-card {
+      padding: 32px;
+      background: var(--ink-2);
+      border: 0.5px solid rgba(201, 168, 76, 0.1);
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+
+    .pillar-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(201, 168, 76, 0.05);
+    }
+
+    .pillar-num {
+      font-family: var(--font-caps);
+      font-size: 36px;
+      color: rgba(201, 168, 76, 0.2);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--cream);
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* Works Strip Section */
     .works-strip {
       padding: var(--section-pad) 0;
-      border-top: 0.5px solid rgba(201, 168, 76, 0.08);
+      border-top: 0.5px solid rgba(201, 168, 76, 0.12);
     }
 
     .works-strip-grid {
@@ -169,32 +336,62 @@
       color: var(--muted-light);
     }
 
-    .cta-brand {
+    /* Launch CTA Section */
+    .launch-cta {
       padding: 100px 0;
-      border-top: 0.5px solid rgba(201, 168, 76, 0.08);
+      background: radial-gradient(circle at 50% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 70%), var(--ink-2);
+      border-top: 0.5px solid rgba(201, 168, 76, 0.12);
       text-align: center;
     }
 
-    .cta-brand h2 {
+    .launch-cta-box {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px;
+      border: 0.5px solid rgba(201, 168, 76, 0.2);
+      background: rgba(13, 12, 10, 0.6);
+      backdrop-filter: blur(12px);
+      border-radius: 4px;
+    }
+
+    @media (max-width: 640px) {
+      .launch-cta-box {
+        padding: 24px;
+      }
+    }
+
+    .launch-cta h2 {
       font-family: var(--font-display);
-      font-size: clamp(32px, 5vw, 60px);
+      font-size: clamp(32px, 5vw, 52px);
       font-weight: 300;
       color: var(--cream);
       margin-bottom: 20px;
+      line-height: 1.2;
     }
 
-    .cta-brand h2 em {
+    .launch-cta h2 em {
       font-style: italic;
       color: var(--gold);
     }
 
-    .cta-brand p {
+    .launch-cta p {
       font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 36px;
-      max-width: 440px;
-      margin-left: auto;
-      margin-right: auto;
+      color: var(--muted-light);
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+
+    .launch-offer-badge {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: rgba(201, 168, 76, 0.15);
+      color: var(--gold);
+      border: 0.5px solid var(--gold);
+      padding: 6px 16px;
+      margin-bottom: 24px;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -206,11 +403,15 @@
     <div class="brand-hero-bg"></div>
     <div class="container">
       <div class="brand-hero-content">
-        <div class="brand-hero-subtitle">Ayush Studios · Music & Audio</div>
-        <h1 class="brand-hero-title">Harmonics<br><em>Heaven</em><br>Studio</h1>
-        <p class="brand-hero-desc">Industry-standard sound quality with professional recording, arrangement, mixing and
+        <div class="new-badge-container reveal">
+          <span class="new-badge">Elite Audio Wing</span>
+          <span class="status-badge">Acoustically Perfected</span>
+        </div>
+        <div class="brand-hero-subtitle reveal">Ayush Studios · Music & Audio</div>
+        <h1 class="brand-hero-title reveal">Harmonics<br><em>Heaven</em><br>Studio</h1>
+        <p class="brand-hero-desc reveal">Industry-standard sound quality with professional recording, arrangement, mixing and
           mastering services — ready for release on every major streaming platform.</p>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <div class="reveal" style="display:flex;gap:16px;flex-wrap:wrap;">
           <a href="../contact.html" class="btn btn-gold">Book a Session</a>
           <a href="../services.html#music" class="btn btn-outline">View Packages</a>
         </div>
@@ -218,31 +419,111 @@
     </div>
   </section>
 
+  <!-- SYNERGY SECTION -->
+  <section class="synergy-section">
+    <div class="container">
+      <div class="synergy-grid">
+        <div class="synergy-content reveal">
+          <div class="section-label" style="color:var(--gold);">Vision meets Sound</div>
+          <h2>One creative standard.<br><em>Two spaces.</em></h2>
+          <p>At Ayush Studios, we believe that world-class music deserves an equally powerful visual narrative.</p>
+          <p>Through our primary audio wing, <strong>Harmonics Heaven</strong>, and our visual sister wing, <strong>Moments Magic Studio</strong>, we create a unified production ecosystem. By integrating high-fidelity sound and premium cinematography, we offer artists a cohesive release that is as stunning to watch as it is to hear.</p>
+          <a href="../about.html" class="btn btn-ghost"
+            style="color:var(--gold); border-bottom-color:rgba(201,168,76,0.3);">Our Full Story →</a>
+        </div>
+        <div class="synergy-visual reveal reveal-delay-1">
+          <p class="synergy-quote">"Sound is the soul of a project, and visuals are its face. At Harmonics Heaven, we shape that soul with precision, depth, and character."</p>
+          <div class="synergy-author">Ayush Paul — Founder & Creative Director</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS SECTION -->
+  <section class="pillars-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto 48px;">
+        <div class="section-label" style="color:var(--gold); justify-content:center;">Our Sound Philosophy</div>
+        <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:300;color:var(--cream);">
+          Our Sonic Direction</h2>
+        <p style="font-size:14px; color:var(--muted-light); margin-top:16px;">We don't just capture sound; we craft a sonic identity. Every project is handled with precision engineering and professional creative guidance.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card reveal">
+          <div class="pillar-num">01</div>
+          <h3 class="pillar-title">Acoustic Precision</h3>
+          <p class="pillar-desc">Custom-designed, acoustically treated rooms ensuring clean vocal isolation, zero room resonance, and flat monitoring accuracy for perfect audio tracking.</p>
+        </div>
+        <div class="pillar-card reveal reveal-delay-1">
+          <div class="pillar-num">02</div>
+          <h3 class="pillar-title">Analog & Digital Fusion</h3>
+          <p class="pillar-desc">Fusing the warmth and saturation of legendary analog hardware emulation with the clinical precision of modern digital audio workstation editing.</p>
+        </div>
+        <div class="pillar-card reveal">
+          <div class="pillar-num">03</div>
+          <h3 class="pillar-title">Custom Soundscapes</h3>
+          <p class="pillar-desc">Rejecting generic presets and stock loops. We build bespoke musical arrangements, tailoring keys, strings, and percussion around your identity.</p>
+        </div>
+        <div class="pillar-card reveal reveal-delay-1">
+          <div class="pillar-num">04</div>
+          <h3 class="pillar-title">Streaming Platform Standards</h3>
+          <p class="pillar-desc">Meticulous loudness optimization and tonal balance, ensuring your mixes sound massive, clear, and punchy on Spotify, Apple Music, and YouTube.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES LIST SECTION -->
   <section class="services-list">
     <div class="container">
       <div class="reveal" style="margin-bottom:48px;">
-        <div class="section-label">What We Do</div>
+        <div class="section-label" style="color:var(--gold);">What We Do</div>
         <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:300;color:var(--cream);">
           Every service your music needs</h2>
       </div>
       <div class="services-list-grid">
         <div class="service-item reveal">
-          <div class="service-item-title">Vocal Recording</div>
+          <svg class="service-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="8" y1="22" x2="16" y2="22"/>
+          </svg>
+          <h3 class="service-item-title">Vocal Recording</h3>
           <p class="service-item-desc">Acoustically treated recording booth, professional condenser microphones, and an
             engineer who knows how to capture your best performance every single take.</p>
         </div>
         <div class="service-item reveal reveal-delay-1">
-          <div class="service-item-title">Arrangement & Production</div>
+          <svg class="service-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M7 8h2v8"/>
+            <path d="M11 8h2l2 4-2 4h-2"/>
+            <path d="M17 8v8"/>
+          </svg>
+          <h3 class="service-item-title">Arrangement & Production</h3>
           <p class="service-item-desc">Full musical arrangement from scratch — keys, strings, percussion, backing
             vocals. We build the sonic world your song lives in.</p>
         </div>
         <div class="service-item reveal">
-          <div class="service-item-title">Mixing</div>
+          <svg class="service-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+            <circle cx="7" cy="6" r="1.5" fill="currentColor" stroke="none"/>
+            <circle cx="15" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+            <circle cx="10" cy="18" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
+          <h3 class="service-item-title">Mixing</h3>
           <p class="service-item-desc">Every element in its perfect place. We balance, sculpt, and space your track so
             it translates across speakers, earbuds, and car stereos alike.</p>
         </div>
         <div class="service-item reveal reveal-delay-1">
-          <div class="service-item-title">Mastering</div>
+          <svg class="service-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13"/>
+            <circle cx="6" cy="18" r="3"/>
+            <circle cx="18" cy="16" r="3"/>
+          </svg>
+          <h3 class="service-item-title">Mastering</h3>
           <p class="service-item-desc">The final polish. Loudness optimization, tonal balance, and streaming-platform
             compliance — so your track sounds its best everywhere.</p>
         </div>
@@ -250,12 +531,13 @@
     </div>
   </section>
 
+  <!-- WORKS STRIP SECTION -->
   <section class="works-strip">
     <div class="container">
       <div class="reveal"
         style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;">
         <div>
-          <div class="section-label">Recent Work</div>
+          <div class="section-label" style="color:var(--gold);">Recent Work</div>
           <h2
             style="font-family:var(--font-display);font-size:clamp(24px,3vw,36px);font-weight:300;color:var(--cream);">
             From our sessions</h2>
@@ -295,9 +577,11 @@
     </div>
   </section>
 
-  <section class="cta-brand">
+  <!-- CTA SECTION -->
+  <section class="launch-cta">
     <div class="container">
-      <div class="reveal">
+      <div class="launch-cta-box reveal">
+        <div class="launch-offer-badge">Professional Production</div>
         <h2>Ready to record your<br><em>next masterpiece?</em></h2>
         <p>Sessions available Monday through Saturday. Get in touch and let's make something extraordinary together.</p>
         <a href="../contact.html" class="btn btn-gold">Book a Session</a>

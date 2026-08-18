@@ -100,6 +100,9 @@ const FOOTER_HTML = `
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 Ayush Studios. All rights reserved. Crafted with intention.</span>
       <div class="footer-socials">
+        <a href="https://www.facebook.com/share/14dC6SThict/" target="_blank" title="Facebook">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+        </a>
         <a href="https://youtube.com/@ayushpaulofficial7?si=ZauTlD4HOKteV7SR" target="_blank" title="YouTube">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23 7s-.3-2-1.2-2.7c-1.1-1.2-2.4-1.2-3-1.3C16.2 3 12 3 12 3s-4.2 0-6.8.2c-.6.1-1.9.1-3 1.3C1.3 5 1 7 1 7S.7 9.1.7 11.2v1.9C.7 15.2 1 17.3 1 17.3s.3 2 1.2 2.7c1.1 1.2 2.6 1.1 3.3 1.2C7.2 21.4 12 21.5 12 21.5s4.2 0 6.8-.3c.6-.1 1.9-.1 3-1.3.9-.7 1.2-2.7 1.2-2.7s.3-2.1.3-4.2v-1.8C23.3 9.1 23 7 23 7zm-13.5 8.5V8.7l8.1 3.4-8.1 3.4z"/></svg>
         </a>

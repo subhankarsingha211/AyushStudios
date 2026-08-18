@@ -36,6 +36,105 @@
       line-height: 1.8;
     }
 
+    /* ── SERVICE SWITCHER ── */
+    .service-switcher-wrap {
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 100;
+      background: rgba(13, 12, 10, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 0.5px solid rgba(201, 168, 76, 0.12);
+      padding: 16px 0;
+    }
+
+    .service-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: var(--ink-2);
+      border: 0.5px solid rgba(201, 168, 76, 0.18);
+      border-radius: 4px;
+      padding: 4px;
+      position: relative;
+      gap: 0;
+    }
+
+    .switcher-center {
+      display: flex;
+      justify-content: center;
+    }
+
+    .switcher-btn {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 28px;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-family: var(--font-body);
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 2px;
+      border: none;
+      background: transparent;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .switcher-btn svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    .switcher-btn.active {
+      color: var(--ink);
+    }
+
+    .switcher-btn.active.teal-active {
+      color: white;
+    }
+
+    .switcher-pill {
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      border-radius: 2px;
+      background: var(--gold);
+      transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1), width 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.35s ease;
+      z-index: 0;
+    }
+
+    /* Service panel transitions */
+    .service-panel {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .service-panel.hidden {
+      display: none;
+    }
+
+    .service-panel.fading {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .switcher-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
     .service-block {
       padding: var(--section-pad) 0;
       border-bottom: 0.5px solid rgba(201, 168, 76, 0.08);
@@ -267,7 +366,8 @@
       appearance: none !important;
     }
 
-    select.q-input option, select.q-input optgroup {
+    select.q-input option,
+    select.q-input optgroup {
       background: var(--ink-2);
       background-image: none !important;
       color: var(--cream);
@@ -450,7 +550,35 @@
     </div>
   </section>
 
+  <!-- SERVICE SWITCHER -->
+  <div class="service-switcher-wrap" id="switcher-bar">
+    <div class="container">
+      <div class="switcher-label">Choose a Studio</div>
+      <div class="switcher-center">
+        <div class="service-switcher" id="service-switcher">
+          <div class="switcher-pill" id="switcher-pill"></div>
+          <button class="switcher-btn active" id="btn-music" onclick="switchService('music')" aria-label="Music Services">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13"/>
+              <circle cx="6" cy="18" r="3"/>
+              <circle cx="18" cy="16" r="3"/>
+            </svg>
+            Harmonics Heaven
+          </button>
+          <button class="switcher-btn" id="btn-video" onclick="switchService('video')" aria-label="Video Services">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 7l-7 5 7 5V7z"/>
+              <rect x="1" y="5" width="15" height="14" rx="2"/>
+            </svg>
+            Moments Magic
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ══ HARMONICS HEAVEN ══ -->
+  <div id="panel-music" class="service-panel">
   <section class="service-block" id="music">
     <div class="container">
       <div class="service-block-header reveal">
@@ -576,8 +704,11 @@
 
     </div>
   </section>
+  </div><!-- end panel-music -->
+
 
   <!-- ══ MOMENTS MAGIC ══ -->
+  <div id="panel-video" class="service-panel hidden">
   <section class="service-block" id="video">
     <div class="container">
       <div class="service-block-header reveal">
@@ -642,6 +773,7 @@
       </div>
     </div>
   </section>
+  </div><!-- end panel-video -->
 
   <!-- ══ QUOTE MODAL ══ -->
   <div id="quote-modal" class="modal">
@@ -675,11 +807,81 @@
           Project Brief →</button>
       </form>
     </div>
+    <p
+      style="font-size: 12px; color: var(--gold); letter-spacing: 1.5px; margin-top: 24px; text-transform: uppercase; font-weight: 500; opacity: 0.9;">
+      * First Come First Serve
+    </p>
+  </div>
+
+  <div class="container" style="text-align: center; margin-top: 40px; margin-bottom: 20px;">
+    <p style="font-size: 12px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-weight: 500; opacity: 0.8;">
+      * First Come First Serve
+    </p>
   </div>
 
   <div id="footer-placeholder"></div>
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    /* ── SERVICE SWITCHER LOGIC ── */
+    function switchService(which) {
+      const panelMusic = document.getElementById('panel-music');
+      const panelVideo = document.getElementById('panel-video');
+      const btnMusic   = document.getElementById('btn-music');
+      const btnVideo   = document.getElementById('btn-video');
+      const pill       = document.getElementById('switcher-pill');
+      const switcher   = document.getElementById('service-switcher');
+
+      if (which === 'music') {
+        // Show music
+        panelMusic.classList.remove('hidden', 'fading');
+        panelVideo.classList.add('hidden');
+        btnMusic.classList.add('active');
+        btnVideo.classList.remove('active', 'teal-active');
+        btnMusic.classList.remove('teal-active');
+        // Slide pill to left button
+        const rect  = btnMusic.getBoundingClientRect();
+        const sRect = switcher.getBoundingClientRect();
+        pill.style.left  = (rect.left - sRect.left - 4) + 'px';
+        pill.style.width = rect.width + 'px';
+        pill.style.background = 'var(--gold)';
+      } else {
+        // Show video
+        panelVideo.classList.remove('hidden', 'fading');
+        panelMusic.classList.add('hidden');
+        btnVideo.classList.add('active', 'teal-active');
+        btnMusic.classList.remove('active', 'teal-active');
+        // Slide pill to right button
+        const rect  = btnVideo.getBoundingClientRect();
+        const sRect = switcher.getBoundingClientRect();
+        pill.style.left  = (rect.left - sRect.left - 4) + 'px';
+        pill.style.width = rect.width + 'px';
+        pill.style.background = 'var(--teal-accent)';
+      }
+
+      // Smooth scroll to top of content
+      const bar = document.getElementById('switcher-bar');
+      const barBottom = bar.getBoundingClientRect().bottom + window.scrollY;
+      window.scrollTo({ top: barBottom - 80, behavior: 'smooth' });
+    }
+
+    // Initialise pill position on load
+    window.addEventListener('load', () => {
+      const pill     = document.getElementById('switcher-pill');
+      const btnMusic = document.getElementById('btn-music');
+      const switcher = document.getElementById('service-switcher');
+      const rect     = btnMusic.getBoundingClientRect();
+      const sRect    = switcher.getBoundingClientRect();
+      pill.style.left       = (rect.left - sRect.left - 4) + 'px';
+      pill.style.width      = rect.width + 'px';
+      pill.style.background = 'var(--gold)';
+
+      // Support hash-based deep linking: services.html#video
+      if (window.location.hash === '#video') switchService('video');
+      else if (window.location.hash === '#music') switchService('music');
+    });
+  </script>
 
   <script>
     const categoryMap = {
