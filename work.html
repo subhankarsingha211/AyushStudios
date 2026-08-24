@@ -34,23 +34,34 @@
       line-height: 1.8;
     }
 
-    .filters-bar {
+    .works-controls-wrap {
       display: flex;
       align-items: center;
-      gap: 0;
-      margin: 48px 0 40px;
-      border: 0.5px solid rgba(201, 168, 76, 0.15);
+      justify-content: space-between;
+      gap: 20px;
+      margin: 40px 0 40px;
+      flex-wrap: wrap;
+    }
+
+    .filters-bar {
       display: inline-flex;
+      align-items: center;
+      border: 0.5px solid rgba(201, 168, 76, 0.22);
+      background: linear-gradient(145deg, rgba(26, 24, 20, 0.9) 0%, rgba(18, 16, 13, 0.95) 100%);
+      border-radius: 4px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(8px);
+      overflow: hidden;
     }
 
     .filter-btn {
       font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      padding: 12px 30px;
+      padding: 11px 24px;
       cursor: pointer;
       border: none;
-      background: none;
+      background: transparent;
       color: var(--muted);
       font-family: var(--font-body);
       border-right: 0.5px solid rgba(201, 168, 76, 0.15);
@@ -65,6 +76,7 @@
     .filter-btn.active {
       background: var(--gold);
       color: var(--ink);
+      font-weight: 600;
     }
 
     .filter-btn:hover:not(.active) {
@@ -72,14 +84,89 @@
       background: rgba(201, 168, 76, 0.08);
     }
 
-    .filters-wrap {
-      text-align: center;
+    /* Sort Control */
+    .sort-control-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .sort-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .sort-btn-group {
+      display: inline-flex;
+      align-items: center;
+      border: 0.5px solid rgba(201, 168, 76, 0.22);
+      background: linear-gradient(145deg, rgba(26, 24, 20, 0.9) 0%, rgba(18, 16, 13, 0.95) 100%);
+      border-radius: 4px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(8px);
+      overflow: hidden;
+    }
+
+    .sort-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 11px 18px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--font-body);
+      border-right: 0.5px solid rgba(201, 168, 76, 0.15);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .sort-btn:last-child {
+      border-right: none;
+    }
+
+    .sort-btn.active {
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .sort-btn:hover:not(.active) {
+      color: var(--cream);
+      background: rgba(201, 168, 76, 0.08);
+    }
+
+    .sort-btn svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 768px) {
+      .works-controls-wrap {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
     }
 
     .works-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      gap: 16px;
       margin-bottom: 80px;
     }
 
@@ -100,7 +187,16 @@
       overflow: hidden;
       aspect-ratio: 16/9;
       cursor: pointer;
-      transition: opacity 0.4s ease;
+      border-radius: 4px;
+      border: 0.5px solid rgba(201, 168, 76, 0.16);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+    }
+
+    .work-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201, 168, 76, 0.45);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 20px rgba(201, 168, 76, 0.08);
     }
 
     .work-item.hidden {
@@ -316,11 +412,25 @@
       </div>
     </div>
 
-    <div class="filters-wrap reveal">
+    <div class="works-controls-wrap reveal">
       <div class="filters-bar">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="hindi">Hindi</button>
         <button class="filter-btn" data-filter="bengali">Bengali</button>
+      </div>
+
+      <div class="sort-control-wrap">
+        <span class="sort-label">Sort By:</span>
+        <div class="sort-btn-group">
+          <button class="sort-btn active" data-sort="desc" onclick="setSortOrder('desc')" aria-label="Sort by Date Descending">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            Date (Desc)
+          </button>
+          <button class="sort-btn" data-sort="asc" onclick="setSortOrder('asc')" aria-label="Sort by Date Ascending">
+            <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            Date (Asc)
+          </button>
+        </div>
       </div>
     </div>
 
@@ -393,14 +503,29 @@
     const ITEMS_PER_PAGE = 6;
     let currentFilter = 'all';
     let currentSearchQuery = '';
+    let currentSortOrder = 'desc';
+
+    function setSortOrder(order) {
+      currentSortOrder = order;
+      document.querySelectorAll('.sort-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.sort === order);
+      });
+      renderProjects(1);
+    }
 
     function renderProjects(page = 1) {
       currentWorkPage = page;
       const grid = document.getElementById('works-grid');
       const countEl = document.getElementById('works-count');
 
-      // Sort projects by release year (newest first / descending)
-      const sortedProjects = [...PROJECTS].sort((a, b) => b.year.localeCompare(a.year));
+      // Sort projects by release year (descending or ascending)
+      const sortedProjects = [...PROJECTS].sort((a, b) => {
+        if (currentSortOrder === 'desc') {
+          return parseInt(b.year) - parseInt(a.year);
+        } else {
+          return parseInt(a.year) - parseInt(b.year);
+        }
+      });
 
       // Filter by category
       let filtered = currentFilter === 'all' ? sortedProjects : sortedProjects.filter(p => p.tags.includes(currentFilter));

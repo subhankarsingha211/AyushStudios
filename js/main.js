@@ -15,82 +15,104 @@ if (ham && mob) {
   });
 }
 
-// ── REVEAL ON SCROLL (manual .reveal elements) ──
-const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-revealEls.forEach(el => observer.observe(el));
+// ── NOTICEABLE SCROLL REVEAL (GLOBAL ALL PAGES) ──
+function initScrollReveal() {
+  const isExcluded = (el) => {
+    const EXCLUDE_PARENTS = ['nav', 'footer', 'script', 'style', '.mobile-menu', '.modal', '.switcher-pill', '.reviews-marquee-track'];
+    for (const sel of EXCLUDE_PARENTS) {
+      if (el.closest(sel)) return true;
+    }
+    return false;
+  };
 
-// ── AUTO REVEAL ON SCROLL (global, all pages) ──
-// Selectors to auto-animate — excludes nav, footer, scripts and anything already .reveal
-const AUTO_SELECTORS = [
-  'h1', 'h2', 'h3', 'h4',
-  'p', 'blockquote',
-  '.section-label',
-  '.package-card', '.pillar-card', '.service-item',
-  '.stat-item', '.work-card', '.strip-thumb',
-  '.process-step', '.pillar-card',
-  '.synergy-visual', '.synergy-content',
-  '.brand-hero-subtitle', '.brand-hero-desc',
-  '.footer-col-title', '.footer-links',
-  'img:not(.nav img)', 'figure',
-  '.btn-gold, .btn-outline, .btn-ghost',
-  '.divider-gold',
-  '.launch-cta-box', '.cta-brand',
-  '[class*="card"]', '[class*="block"]',
-].join(',');
+  // 1. Identify grid items and card containers for automatic staggering
+  const STAGGER_CONTAINERS = [
+    '.brands-grid',
+    '.works-grid',
+    '.packages-grid',
+    '.stats-grid',
+    '.process-steps',
+    '.principles-grid',
+    '.brand-pills',
+    '.direct-methods',
+    '.cards-grid'
+  ];
 
-// Exclusion: skip elements already inside a .reveal, already tagged, in nav/footer, or in <script>/<style>
-const EXCLUDE_PARENTS = ['nav', 'footer', 'script', 'style', '.mobile-menu', '.modal', '.switcher-pill'];
-
-function isExcluded(el) {
-  if (el.classList.contains('reveal') || el.classList.contains('auto-reveal')) return true;
-  if (el.closest('.reveal') || el.closest('.auto-reveal')) return true;
-  for (const sel of EXCLUDE_PARENTS) {
-    if (el.closest(sel)) return true;
-  }
-  // Skip elements already in viewport at load (above the fold) — don't animate hero instantly
-  const rect = el.getBoundingClientRect();
-  if (rect.top < window.innerHeight * 0.6 && rect.top >= 0) return true;
-  return false;
-}
-
-// Group siblings so we can stagger them
-function getSiblingIndex(el) {
-  const parent = el.parentElement;
-  if (!parent) return 0;
-  const siblings = Array.from(parent.children).filter(c => c.classList.contains('auto-reveal'));
-  return siblings.indexOf(el);
-}
-
-// Run after DOM is fully ready
-window.addEventListener('DOMContentLoaded', () => {
-  const candidates = document.querySelectorAll(AUTO_SELECTORS);
-  candidates.forEach(el => {
-    if (isExcluded(el)) return;
-    el.classList.add('auto-reveal');
+  STAGGER_CONTAINERS.forEach(containerSel => {
+    document.querySelectorAll(containerSel).forEach(container => {
+      if (isExcluded(container)) return;
+      const children = Array.from(container.children).filter(c => !isExcluded(c));
+      children.forEach((child, idx) => {
+        child.classList.add('auto-reveal');
+        const delay = (idx * 0.1).toFixed(2); // 100ms staggered cascade
+        child.style.setProperty('--ar-delay', delay + 's');
+      });
+    });
   });
 
-  // Assign stagger delays per group of siblings
-  document.querySelectorAll('.auto-reveal').forEach(el => {
-    const idx = getSiblingIndex(el);
-    const delay = Math.min(idx * 0.05, 0.3); // max 300ms stagger
-    el.style.setProperty('--ar-delay', delay + 's');
-  });
+  // 2. Target general content headings, blocks, and elements
+  const CONTENT_SELECTORS = [
+    'section > .container > .reveal',
+    '.service-block-header',
+    '.section-label',
+    '.brands-intro',
+    '.works-header',
+    '.testimonials-header',
+    '.cta-banner .reveal',
+    '.custom-build',
+    '.about-hero-inner',
+    '.about-story-grid',
+    '.contact-grid',
+    '.contact-hero',
+    '.page-hero'
+  ];
 
-  // Observe them
-  const arObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('ar-visible');
-        arObserver.unobserve(e.target);
+  CONTENT_SELECTORS.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => {
+      if (isExcluded(el)) return;
+      if (!el.classList.contains('reveal') && !el.classList.contains('auto-reveal')) {
+        el.classList.add('auto-reveal');
       }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  });
 
-  document.querySelectorAll('.auto-reveal').forEach(el => arObserver.observe(el));
-});
+  // 3. Setup IntersectionObserver for first-time scroll revealing
+  const revealObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible', 'ar-visible');
+        obs.unobserve(entry.target); // Trigger only once on first scroll
+      }
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -45px 0px'
+  });
+
+  // Observe all .reveal and .auto-reveal elements
+  const allRevealElements = document.querySelectorAll('.reveal, .auto-reveal');
+  allRevealElements.forEach(el => {
+    if (isExcluded(el)) return;
+
+    // Check if element is already in the upper viewport on initial load
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
+      // Reveal immediately or on initial load
+      setTimeout(() => {
+        el.classList.add('visible', 'ar-visible');
+      }, 60);
+    } else {
+      revealObserver.observe(el);
+    }
+  });
+}
+
+// Run on DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initScrollReveal);
+} else {
+  initScrollReveal();
+}
 
 
 // ── COUNTER ANIMATION ──

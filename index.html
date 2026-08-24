@@ -29,8 +29,10 @@
       position: absolute;
       inset: 0;
       z-index: 0;
-      background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201, 168, 76, 0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(42, 122, 111, 0.05) 0%, transparent 60%),
+      background:
+        radial-gradient(ellipse 80% 65% at 75% 30%, rgba(201, 168, 76, 0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 20% 75%, rgba(42, 122, 111, 0.07) 0%, transparent 60%),
+        radial-gradient(circle 500px at 50% 50%, rgba(18, 17, 14, 0.5) 0%, transparent 80%),
         var(--ink);
     }
 
@@ -107,9 +109,14 @@
     }
 
     .hero-title .outline {
-      -webkit-text-stroke: 1px rgba(245, 240, 232, 0.3);
-      color: transparent;
       display: block;
+      font-style: italic;
+      color: var(--teal-accent);
+      background: linear-gradient(135deg, #56D6C6 0%, #2A7A6F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 0px;
+      filter: drop-shadow(0 4px 20px rgba(42, 122, 111, 0.4));
     }
 
     .hero-sub {
@@ -186,6 +193,10 @@
     /* ── BRANDS SECTION ── */
     .brands-section {
       padding: var(--section-pad) 0;
+      background: linear-gradient(180deg, rgba(18, 17, 14, 0.7) 0%, rgba(13, 12, 10, 0.85) 100%);
+      border-top: 0.5px solid rgba(201, 168, 76, 0.12);
+      border-bottom: 0.5px solid rgba(201, 168, 76, 0.1);
+      position: relative;
     }
 
     .brands-intro {
@@ -216,8 +227,8 @@
     .brands-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      max-width: 900px;
+      gap: 20px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
@@ -231,10 +242,15 @@
     .brand-card {
       position: relative;
       padding: 48px 40px 40px;
-      background: var(--ink-2);
+      background: linear-gradient(150deg, rgba(28, 26, 22, 0.88) 0%, rgba(18, 17, 14, 0.96) 100%);
+      border: 0.5px solid rgba(201, 168, 76, 0.16);
+      border-radius: 4px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       overflow: hidden;
       cursor: pointer;
-      transition: background var(--transition);
+      transition: background var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
     }
 
     .brand-card::before {
@@ -251,7 +267,10 @@
     }
 
     .brand-card:hover {
-      background: #1e1d1a;
+      background: linear-gradient(150deg, rgba(34, 32, 27, 0.95) 0%, rgba(22, 21, 17, 0.98) 100%);
+      border-color: var(--accent-color, var(--gold));
+      transform: translateY(-5px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 24px rgba(201, 168, 76, 0.1);
     }
 
     .brand-card:hover::before {
@@ -357,7 +376,9 @@
     /* ── RECENT WORKS ── */
     .works-section {
       padding: var(--section-pad) 0;
-      border-top: 0.5px solid rgba(201, 168, 76, 0.08);
+      background: linear-gradient(180deg, rgba(13, 12, 10, 0.85) 0%, rgba(20, 18, 15, 0.7) 100%);
+      border-top: 0.5px solid rgba(201, 168, 76, 0.1);
+      border-bottom: 0.5px solid rgba(201, 168, 76, 0.08);
     }
 
     .works-header {
@@ -379,7 +400,7 @@
     .works-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
+      gap: 16px;
     }
 
     @media (max-width: 1024px) {
@@ -399,25 +420,35 @@
       overflow: hidden;
       aspect-ratio: 16/9;
       cursor: pointer;
+      border-radius: 4px;
+      border: 0.5px solid rgba(201, 168, 76, 0.16);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .work-card:hover {
+      border-color: rgba(201, 168, 76, 0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(201, 168, 76, 0.08);
     }
 
     .work-thumb {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: grayscale(30%) brightness(0.75);
+      filter: grayscale(20%) brightness(0.8);
       transition: transform 0.6s ease, filter 0.5s ease;
     }
 
     .work-card:hover .work-thumb {
       transform: scale(1.05);
-      filter: grayscale(0%) brightness(0.6);
+      filter: grayscale(0%) brightness(0.65);
     }
 
     .work-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(13, 12, 10, 0.9) 0%, transparent 60%);
+      background: linear-gradient(to top, rgba(13, 12, 10, 0.92) 0%, rgba(13, 12, 10, 0.2) 60%, transparent 100%);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -447,7 +478,9 @@
       transform: translate(-50%, -50%) scale(0.8);
       width: 48px;
       height: 48px;
-      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      border: 1.5px solid rgba(255, 255, 255, 0.7);
+      background: rgba(13, 12, 10, 0.4);
+      backdrop-filter: blur(4px);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -471,7 +504,9 @@
     /* ── STATS ── */
     .stats-section {
       padding: var(--section-pad) 0;
-      border-top: 0.5px solid rgba(201, 168, 76, 0.08);
+      background: linear-gradient(180deg, rgba(22, 20, 16, 0.85) 0%, rgba(15, 14, 11, 0.95) 100%);
+      border-top: 0.5px solid rgba(201, 168, 76, 0.12);
+      border-bottom: 0.5px solid rgba(201, 168, 76, 0.12);
     }
 
     .stats-intro {
@@ -487,59 +522,192 @@
       color: var(--cream);
     }
 
-    /* ── TESTIMONIALS ── */
+    /* ── CONTINUOUS REVIEWS SLIDER ── */
     .testimonials-section {
       padding: var(--section-pad) 0;
-      border-top: 0.5px solid rgba(201, 168, 76, 0.08);
+      background: linear-gradient(180deg, rgba(14, 13, 10, 0.9) 0%, rgba(22, 20, 16, 0.75) 100%);
+      border-top: 0.5px solid rgba(201, 168, 76, 0.1);
+      position: relative;
+      overflow: hidden;
     }
 
-    .testi-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      margin-top: 60px;
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 48px;
     }
 
-    @media (max-width: 768px) {
-      .testi-grid {
-        grid-template-columns: 1fr;
+    .testimonials-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.1;
+    }
+
+    .testimonials-header h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .reviews-marquee-wrap {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: 16px 0 24px;
+      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+
+    .reviews-marquee-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      animation: marqueeContinuous 38s linear infinite;
+      will-change: transform;
+    }
+
+    .reviews-marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeContinuous {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-50% - 12px));
       }
     }
 
-    .testi-card {
-      padding: 36px 32px;
-      background: var(--ink-2);
+    .review-card {
+      width: 380px;
+      flex-shrink: 0;
+      background: linear-gradient(145deg, rgba(28, 26, 22, 0.92) 0%, rgba(18, 17, 14, 0.97) 100%);
+      border: 0.5px solid rgba(201, 168, 76, 0.18);
+      padding: 36px 30px 32px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      user-select: none;
     }
 
-    .testi-quote {
+    .review-card:hover {
+      border-color: rgba(201, 168, 76, 0.45);
+      transform: translateY(-5px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65), 0 0 24px rgba(201, 168, 76, 0.08);
+    }
+
+    .review-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 3px;
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .review-badge {
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      font-weight: 500;
+      border: 0.5px solid rgba(201, 168, 76, 0.3);
+      color: var(--gold);
+      background: rgba(201, 168, 76, 0.05);
+    }
+
+    .review-badge.teal {
+      border-color: rgba(42, 122, 111, 0.4);
+      color: var(--teal-accent);
+      background: rgba(42, 122, 111, 0.08);
+    }
+
+    .review-quote {
       font-family: var(--font-display);
-      font-size: 18px;
+      font-size: 17px;
       font-style: italic;
       color: var(--cream);
-      line-height: 1.6;
-      margin-bottom: 24px;
+      line-height: 1.65;
+      margin-bottom: 28px;
+      position: relative;
     }
 
-    .testi-quote::before {
-      content: '"';
+    .review-quote::before {
+      content: '“';
+      color: rgba(201, 168, 76, 0.3);
+      font-size: 36px;
+      font-family: serif;
+      line-height: 0;
+      display: inline-block;
+      margin-right: 4px;
+      vertical-align: -8px;
+    }
+
+    .review-author-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-top: 0.5px solid rgba(201, 168, 76, 0.1);
+      padding-top: 20px;
+    }
+
+    .review-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.2), rgba(13, 12, 10, 0.8));
+      border: 0.5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-caps);
+      font-size: 16px;
       color: var(--gold);
-      font-size: 28px;
-      line-height: 0.8;
-      display: block;
-      margin-bottom: 8px;
+      letter-spacing: 1px;
+      flex-shrink: 0;
     }
 
-    .testi-author {
-      font-size: 11px;
-      letter-spacing: 2px;
+    .review-avatar.teal-avatar {
+      background: linear-gradient(135deg, rgba(42, 122, 111, 0.3), rgba(13, 12, 10, 0.8));
+      border-color: var(--teal-accent);
+      color: var(--teal-accent);
+    }
+
+    .review-author-info {
+      flex: 1;
+    }
+
+    .review-author-name {
+      font-size: 12px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--cream);
+      font-weight: 500;
     }
 
-    .testi-project {
+    .review-author-project {
       font-size: 11px;
       color: var(--muted);
-      margin-top: 3px;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 640px) {
+      .review-card {
+        width: 300px;
+        padding: 28px 22px 24px;
+      }
     }
 
     /* ── CTA BANNER ── */
@@ -796,33 +964,238 @@
     </div>
   </section>
 
-  <!-- ══ TESTIMONIALS ══ -->
+  <!-- ══ CONTINUOUS REVIEWS SLIDER ══ -->
   <section class="testimonials-section">
     <div class="container">
-      <div class="reveal" style="text-align:center;">
-        <div class="section-label" style="justify-content:center;">Testimonials</div>
-        <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:300;color:var(--cream);">
-          What our artists say</h2>
+      <div class="testimonials-header reveal">
+        <div class="section-label" style="justify-content:center;">Artist Testimonials</div>
+        <h2>What Our Artists &amp; Clients <em>Say</em></h2>
       </div>
-      <div class="testi-grid">
-        <div class="testi-card reveal">
-          <p class="testi-quote">The recording experience was extraordinary. Ayush understood my emotion before I even
-            explained it. The final mix was beyond what I had imagined.</p>
-          <div class="testi-author">Saini Ghosh</div>
-          <div class="testi-project">O Maa Tomar Agomon · Music Video</div>
+    </div>
+
+    <!-- Infinite Continuous Marquee Track -->
+    <div class="reviews-marquee-wrap reveal">
+      <div class="reviews-marquee-track">
+
+        <!-- ══ SET 1 ══ -->
+        <!-- 1. Saini Ghosh -->
+        <div class="review-card">
+          <div>
+            <div class="review-card-top">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-badge">Harmonics Heaven</span>
+            </div>
+            <p class="review-quote">The recording experience at Harmonics Heaven was extraordinary. Ayush understood my emotion before I even explained it. The vocal production and final mix for my release were beyond what I had imagined.</p>
+          </div>
+          <div class="review-author-wrap">
+            <div class="review-avatar">SG</div>
+            <div class="review-author-info">
+              <div class="review-author-name">Saini Ghosh</div>
+              <div class="review-author-project">O Maa Tomar Agomon · Music Video</div>
+            </div>
+          </div>
         </div>
-        <div class="testi-card reveal reveal-delay-1">
-          <p class="testi-quote">From arrangement to final mastering, every detail was handled with such precision and
-            care. Harmonics Heaven is truly a world-class studio.</p>
-          <div class="testi-author">Ishika Saha</div>
-          <div class="testi-project">Multiple Productions · 2022–2024</div>
+
+        <!-- 2. Ishika Saha -->
+        <div class="review-card">
+          <div>
+            <div class="review-card-top">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-badge">Harmonics Heaven</span>
+            </div>
+            <p class="review-quote">From intricate vocal arrangement to final mastering, every detail was handled with utmost precision and care. Harmonics Heaven is truly a world-class sound sanctuary.</p>
+          </div>
+          <div class="review-author-wrap">
+            <div class="review-avatar">IS</div>
+            <div class="review-author-info">
+              <div class="review-author-name">Ishika Saha</div>
+              <div class="review-author-project">Multiple Productions · 2022–2024</div>
+            </div>
+          </div>
         </div>
-        <div class="testi-card reveal reveal-delay-2">
-          <p class="testi-quote">The professionalism, the equipment, the talent — everything is exceptional. My track
-            came out exactly the way I dreamed it would sound.</p>
-          <div class="testi-author">Abritte Talukdar</div>
-          <div class="testi-project">Tomar Agomone · Music Video</div>
+
+        <!-- 3. Abrittite Talukder -->
+        <div class="review-card">
+          <div>
+            <div class="review-card-top">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-badge">Harmonics Heaven</span>
+            </div>
+            <p class="review-quote">The acoustic treatment, state-of-the-art equipment, and Ayush's artistic guidance made all the difference. My tracks came out sounding massive and radio-ready on all platforms.</p>
+          </div>
+          <div class="review-author-wrap">
+            <div class="review-avatar">AT</div>
+            <div class="review-author-info">
+              <div class="review-author-name">Abrittite Talukder</div>
+              <div class="review-author-project">Aao Na &amp; Devi Vandana · Single</div>
+            </div>
+          </div>
         </div>
+
+        <!-- 4. Biplap Barman -->
+        <div class="review-card">
+          <div>
+            <div class="review-card-top">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-badge teal">Moments Magic</span>
+            </div>
+            <p class="review-quote">Ayush Studios delivered unbelievable cinematic visuals and pristine sound engineering. The lighting, color grading, and sonic impact surpassed every expectation.</p>
+          </div>
+          <div class="review-author-wrap">
+            <div class="review-avatar teal-avatar">BB</div>
+            <div class="review-author-info">
+              <div class="review-author-name">Biplap Barman</div>
+              <div class="review-author-project">Moments Magic &amp; Harmonics · Production</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Ayushka Bhowmik -->
+        <div class="review-card">
+          <div>
+            <div class="review-card-top">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-badge">Harmonics Heaven</span>
+            </div>
+            <p class="review-quote">Working with Ayush Studios transformed how I hear my own vocals. The warmth, clarity, and depth in the final mix gave my music a whole new dimension.</p>
+          </div>
+          <div class="review-author-wrap">
+            <div class="review-avatar">AB</div>
+            <div class="review-author-info">
+              <div class="review-author-name">Ayushka Bhowmik</div>
+              <div class="review-author-project">Teri Umeed Tera Intezaar · Single</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Jaydipa Biswas -->
+        <div class="review-card">
+          <div>
+            <div class="review-card-top">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-badge teal">Moments Magic</span>
+            </div>
+            <p class="review-quote">A truly magical creative journey. Their professionalism, patience with revisions, and artistic visual storytelling made our project an absolute masterpiece.</p>
+          </div>
+          <div class="review-author-wrap">
+            <div class="review-avatar teal-avatar">JB</div>
+            <div class="review-author-info">
+              <div class="review-author-name">Jaydipa Biswas</div>
+              <div class="review-author-project">Bengali Original &amp; Visual Storytelling</div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ══ SET 2 (Identical Duplicate for Seamless Infinite Marquee Loop) ══ -->
+        <!-- 1. Saini Ghosh -->
+        <div class="review-card" aria-hidden="true">
+          <div>
+            <div class="review-card-top">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-badge">Harmonics Heaven</span>
+            </div>
+            <p class="review-quote">The recording experience at Harmonics Heaven was extraordinary. Ayush understood my emotion before I even explained it. The vocal production and final mix for my release were beyond what I had imagined.</p>
+          </div>
+          <div class="review-author-wrap">
+            <div class="review-avatar">SG</div>
+            <div class="review-author-info">
+              <div class="review-author-name">Saini Ghosh</div>
+              <div class="review-author-project">O Maa Tomar Agomon · Music Video</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Ishika Saha -->
+        <div class="review-card" aria-hidden="true">
+          <div>
+            <div class="review-card-top">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-badge">Harmonics Heaven</span>
+            </div>
+            <p class="review-quote">From intricate vocal arrangement to final mastering, every detail was handled with utmost precision and care. Harmonics Heaven is truly a world-class sound sanctuary.</p>
+          </div>
+          <div class="review-author-wrap">
+            <div class="review-avatar">IS</div>
+            <div class="review-author-info">
+              <div class="review-author-name">Ishika Saha</div>
+              <div class="review-author-project">Multiple Productions · 2022–2024</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Abrittite Talukder -->
+        <div class="review-card" aria-hidden="true">
+          <div>
+            <div class="review-card-top">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-badge">Harmonics Heaven</span>
+            </div>
+            <p class="review-quote">The acoustic treatment, state-of-the-art equipment, and Ayush's artistic guidance made all the difference. My tracks came out sounding massive and radio-ready on all platforms.</p>
+          </div>
+          <div class="review-author-wrap">
+            <div class="review-avatar">AT</div>
+            <div class="review-author-info">
+              <div class="review-author-name">Abrittite Talukder</div>
+              <div class="review-author-project">Aao Na &amp; Devi Vandana · Single</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Biplap Barman -->
+        <div class="review-card" aria-hidden="true">
+          <div>
+            <div class="review-card-top">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-badge teal">Moments Magic</span>
+            </div>
+            <p class="review-quote">Ayush Studios delivered unbelievable cinematic visuals and pristine sound engineering. The lighting, color grading, and sonic impact surpassed every expectation.</p>
+          </div>
+          <div class="review-author-wrap">
+            <div class="review-avatar teal-avatar">BB</div>
+            <div class="review-author-info">
+              <div class="review-author-name">Biplap Barman</div>
+              <div class="review-author-project">Moments Magic &amp; Harmonics · Production</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Ayushka Bhowmik -->
+        <div class="review-card" aria-hidden="true">
+          <div>
+            <div class="review-card-top">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-badge">Harmonics Heaven</span>
+            </div>
+            <p class="review-quote">Working with Ayush Studios transformed how I hear my own vocals. The warmth, clarity, and depth in the final mix gave my music a whole new dimension.</p>
+          </div>
+          <div class="review-author-wrap">
+            <div class="review-avatar">AB</div>
+            <div class="review-author-info">
+              <div class="review-author-name">Ayushka Bhowmik</div>
+              <div class="review-author-project">Teri Umeed Tera Intezaar · Single</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Jaydipa Biswas -->
+        <div class="review-card" aria-hidden="true">
+          <div>
+            <div class="review-card-top">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-badge teal">Moments Magic</span>
+            </div>
+            <p class="review-quote">A truly magical creative journey. Their professionalism, patience with revisions, and artistic visual storytelling made our project an absolute masterpiece.</p>
+          </div>
+          <div class="review-author-wrap">
+            <div class="review-avatar teal-avatar">JB</div>
+            <div class="review-author-info">
+              <div class="review-author-name">Jaydipa Biswas</div>
+              <div class="review-author-project">Bengali Original &amp; Visual Storytelling</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
