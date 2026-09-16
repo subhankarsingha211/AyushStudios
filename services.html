@@ -667,6 +667,125 @@
       margin-bottom: 8px;
       text-align: left;
     }
+
+    /* ── HIGHLIGHTED FIRST COME FIRST SERVE BADGE ── */
+    .fcfs-section-wrap {
+      text-align: center;
+      margin: 50px auto 30px auto;
+    }
+
+    .fcfs-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px 28px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.12) 0%, rgba(20, 18, 14, 0.95) 100%);
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 0 20px rgba(201, 168, 76, 0.15);
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+    }
+
+    .fcfs-pill-badge:hover {
+      border-color: rgba(201, 168, 76, 0.65);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55), 0 0 30px rgba(201, 168, 76, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .fcfs-pulse-ring {
+      position: relative;
+      width: 10px;
+      height: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .fcfs-pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--gold);
+    }
+
+    .fcfs-pulse-ring::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      animation: fcfsPulseRing 2.2s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+    }
+
+    @keyframes fcfsPulseRing {
+      0% { transform: scale(0.6); opacity: 0.9; }
+      50% { transform: scale(1.4); opacity: 0.1; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    .fcfs-primary-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      text-shadow: 0 0 12px rgba(201, 168, 76, 0.4);
+    }
+
+    .fcfs-dot-divider {
+      color: rgba(201, 168, 76, 0.45);
+      font-size: 12px;
+    }
+
+    .fcfs-secondary-text {
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.85;
+      font-weight: 400;
+    }
+
+    .modal-fcfs-note {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      margin-top: 18px;
+      padding: 10px 16px;
+      border-radius: 6px;
+      background: rgba(201, 168, 76, 0.08);
+      border: 0.5px solid rgba(201, 168, 76, 0.25);
+    }
+
+    .modal-fcfs-text {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--gold-light);
+    }
+
+    @media (max-width: 680px) {
+      .fcfs-pill-badge {
+        flex-direction: column;
+        gap: 6px;
+        padding: 14px 20px;
+        border-radius: 12px;
+      }
+      .fcfs-dot-divider {
+        display: none;
+      }
+      .fcfs-secondary-text {
+        font-size: 10px;
+      }
+    }
   </style>
 </head>
 
@@ -779,29 +898,6 @@
           <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">Get a Quote</a>
         </div>
       </div>
-      <div class="process-steps reveal">
-        <div class="process-step">
-          <div class="process-num">01</div>
-          <div class="process-step-title">Request a Quote</div>
-          <div class="process-step-desc">Select a package or send a custom brief. We'll review within 24 hours.</div>
-        </div>
-        <div class="process-step">
-          <div class="process-num">02</div>
-          <div class="process-step-title">Consultation</div>
-          <div class="process-step-desc">We discuss your vision, timeline, references, and creative goals together.
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="process-num">03</div>
-          <div class="process-step-title">Creation</div>
-          <div class="process-step-desc">We step into the studio and make art. You're involved at every stage.</div>
-        </div>
-        <div class="process-step">
-          <div class="process-num">04</div>
-          <div class="process-step-title">Delivery</div>
-          <div class="process-step-desc">Final masters delivered in all formats. Release-ready, always.</div>
-        </div>
-      </div>
 
       <!-- ══ DYNAMIC MUSIC CONFIGURATOR ══ -->
       <div class="reveal" style="margin-top: 80px;" id="customquote">
@@ -843,6 +939,41 @@
             <button class="btn btn-gold" onclick="generateProjectSummary()"
               style="font-size: 11px; padding: 16px 40px; letter-spacing: 3px;">Generate Project Quote →</button>
           </div>
+        </div>
+      </div>
+
+      <!-- ══ PRODUCTION PROCESS STEPS ══ -->
+      <div class="divider" style="margin-top: 80px; margin-bottom: 80px;"></div>
+      <div class="service-block-header reveal" style="margin-bottom: 40px;">
+        <div>
+          <div class="section-label">Our Process</div>
+          <h2 class="service-block-title">How Your Music <em>Comes to Life</em></h2>
+        </div>
+        <div class="service-block-desc">
+          <p>From initial quote to streaming-ready master release, here is what your production journey looks like with Ayush Studios.</p>
+        </div>
+      </div>
+      <div class="process-steps reveal" style="margin-top: 0;">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <div class="process-step-title">Request a Quote</div>
+          <div class="process-step-desc">Select a package or send a custom brief. We'll review within 24 hours.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <div class="process-step-title">Consultation</div>
+          <div class="process-step-desc">We discuss your vision, timeline, references, and creative goals together.
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <div class="process-step-title">Creation</div>
+          <div class="process-step-desc">We step into the studio and make art. You're involved at every stage.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <div class="process-step-title">Delivery</div>
+          <div class="process-step-desc">Final masters delivered in all formats. Release-ready, always.</div>
         </div>
       </div>
 
@@ -949,18 +1080,23 @@
         <button type="submit" class="btn btn-gold"
           style="width: 100%; justify-content: center; margin-top: 16px; font-size: 12px; letter-spacing: 3px;">Submit
           Project Brief →</button>
+        <div class="modal-fcfs-note">
+          <span class="fcfs-pulse-dot" style="width: 6px; height: 6px;"></span>
+          <span class="modal-fcfs-text">First Come, First Served • Slots Secured Upon Confirmation</span>
+        </div>
       </form>
     </div>
-    <p
-      style="font-size: 12px; color: var(--gold); letter-spacing: 1.5px; margin-top: 24px; text-transform: uppercase; font-weight: 500; opacity: 0.9;">
-      * First Come First Serve
-    </p>
   </div>
 
-  <div class="container" style="text-align: center; margin-top: 40px; margin-bottom: 20px;">
-    <p style="font-size: 12px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-weight: 500; opacity: 0.8;">
-      * First Come First Serve
-    </p>
+  <div class="container fcfs-section-wrap reveal">
+    <div class="fcfs-pill-badge">
+      <span class="fcfs-pulse-ring">
+        <span class="fcfs-pulse-dot"></span>
+      </span>
+      <span class="fcfs-primary-text">First Come, First Served Basis</span>
+      <span class="fcfs-dot-divider">•</span>
+      <span class="fcfs-secondary-text">Studio Slots Strictly Secured Upon Confirmation</span>
+    </div>
   </div>
 
   <div id="footer-placeholder"></div>
