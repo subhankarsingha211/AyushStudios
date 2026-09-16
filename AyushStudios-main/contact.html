@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Ayush Studios | Book a Session</title>
+  <meta name="description" content="Get in touch with Ayush Studios in Dinhata, Cooch Behar. Book a music recording session, photography shoot, or enroll in piano lessons. WhatsApp, email, and online inquiry available.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contact-hero {
+      padding: calc(var(--nav-h) + 80px) 0 60px;
+      text-align: center;
+      border-bottom: 0.5px solid rgba(201,168,76,0.1);
+      background: radial-gradient(ellipse 80% 50% at 50% 30%, rgba(201, 168, 76, 0.07) 0%, transparent 65%);
+    }
+    .contact-hero h1 { font-family: var(--font-display); font-size: clamp(48px,8vw,96px); font-weight: 300; color: var(--cream); }
+    .contact-hero h1 em { font-style: italic; color: var(--gold); }
+    .contact-hero p { font-size: 14px; color: var(--muted-light); max-width: 480px; margin: 20px auto 0; line-height: 1.8; }
+
+    .contact-main { padding: var(--section-pad) 0; }
+    .contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; }
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 60px; } }
+
+    /* Form */
+    .contact-form-title { font-family: var(--font-display); font-size: 28px; font-weight: 300; color: var(--cream); margin-bottom: 32px; }
+    .form-group { margin-bottom: 20px; }
+    .form-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+    .form-input, .form-textarea {
+      width: 100%;
+      background: linear-gradient(145deg, rgba(26, 24, 20, 0.9) 0%, rgba(18, 16, 13, 0.95) 100%);
+      border: 0.5px solid rgba(201,168,76,0.18);
+      border-radius: 4px;
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      background-image: none !important;
+    }
+    .form-select {
+      width: 100%;
+      background: linear-gradient(145deg, rgba(26, 24, 20, 0.9) 0%, rgba(18, 16, 13, 0.95) 100%);
+      border: 0.5px solid rgba(201,168,76,0.18);
+      border-radius: 4px;
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='1' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+      background-repeat: no-repeat !important;
+      background-position: right 16px center !important;
+      padding-right: 40px !important;
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+      appearance: none !important;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 16px rgba(201, 168, 76, 0.2);
+    }
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: var(--muted);
+    }
+    .form-select option, .form-select optgroup {
+      background: var(--ink-2);
+      background-image: none !important;
+      color: var(--cream);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+    .form-submit { margin-top: 8px; }
+    .form-note { font-size: 11px; color: var(--muted); margin-top: 12px; }
+    .form-success { display: none; padding: 20px; background: rgba(42,122,111,0.1); border: 0.5px solid var(--teal-accent); color: var(--cream); font-size: 14px; text-align: center; margin-top: 16px; border-radius: 4px; }
+
+    /* Direct Contact */
+    .contact-direct-title { font-family: var(--font-display); font-size: 24px; font-weight: 300; color: var(--cream); margin-bottom: 32px; }
+    .direct-methods { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+    .direct-method {
+      display: flex; align-items: center; gap: 16px; padding: 20px;
+      background: linear-gradient(145deg, rgba(28, 26, 22, 0.88) 0%, rgba(18, 17, 14, 0.96) 100%);
+      border: 0.5px solid rgba(201,168,76,0.16);
+      border-radius: 4px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      text-decoration: none;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+    }
+    .direct-method:hover {
+      background: linear-gradient(145deg, rgba(34, 32, 27, 0.95) 0%, rgba(22, 21, 17, 0.98) 100%);
+      border-color: rgba(201,168,76,0.45);
+      transform: translateX(4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    }
+    .method-icon { font-size: 20px; width: 40px; text-align: center; flex-shrink: 0; }
+    .method-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+    .method-value { font-size: 14px; color: var(--cream); }
+    .method-arrow { margin-left: auto; color: var(--muted); font-size: 16px; transition: transform var(--transition), color var(--transition); }
+    .direct-method:hover .method-arrow { transform: translateX(4px); color: var(--gold); }
+
+    .studio-info-title { font-family: var(--font-display); font-size: 20px; font-weight: 300; color: var(--cream); margin-bottom: 20px; }
+    .studio-hours {
+      background: linear-gradient(145deg, rgba(28, 26, 22, 0.88) 0%, rgba(18, 17, 14, 0.96) 100%);
+      border: 0.5px solid rgba(201,168,76,0.16);
+      border-radius: 4px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .hours-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .hours-row { display: flex; justify-content: space-between; font-size: 13px; padding: 7px 0; border-bottom: 0.5px solid rgba(201,168,76,0.06); color: var(--muted-light); }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { color: var(--muted); }
+    .map-placeholder {
+      background: linear-gradient(145deg, rgba(28, 26, 22, 0.88) 0%, rgba(18, 17, 14, 0.96) 100%);
+      border: 0.5px solid rgba(201,168,76,0.16);
+      border-radius: 4px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      padding: 32px;
+      text-align: center;
+    }
+    .map-icon { font-size: 28px; margin-bottom: 12px; }
+    .map-addr { font-size: 14px; color: var(--muted-light); line-height: 1.7; }
+    .map-link { display: inline-block; margin-top: 16px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); border-bottom: 0.5px solid var(--gold); padding-bottom: 2px; }
+  </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<section class="contact-hero">
+  <div class="container">
+    <div class="section-label" style="justify-content:center;">Get in Touch</div>
+    <h1>Let's <em>Talk.</em></h1>
+    <p>Ready to start your project? Whether it's a recording session, mixing project, or visual production — we'd love to hear from you.</p>
+  </div>
+</section>
+
+<section class="contact-main">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- FORM -->
+      <div class="reveal">
+        <div class="contact-form-title">Send a Message</div>
+        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="name">Your Name</label>
+              <input class="form-input" type="text" id="name" name="name" placeholder="Full name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone / WhatsApp</label>
+            <input class="form-input" type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="service">Service Interested In</label>
+            <select class="form-select" id="service" name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <optgroup label="Harmonics Heaven Studio">
+                <option value="recording">Music Recording</option>
+                <option value="mixing">Mixing & Mastering</option>
+                <option value="production">Full Music Production</option>
+              </optgroup>
+              <optgroup label="Moments Magic Studio">
+                <option value="music-video">Music Video Production</option>
+                <option value="wedding">Wedding Photography & Video</option>
+                <option value="event">Event Coverage</option>
+                <option value="portrait">Portrait / Brand Shoot</option>
+              </optgroup>
+              <option value="other">Other / General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Tell Us About Your Project</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Share your vision, timeline, or any questions you have..." required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-gold" style="width:100%; justify-content:center; font-size:12px; letter-spacing:3px;">Send Request →</button>
+            <p class="form-note">We respond within 24 hours. Your information is never shared.</p>
+          </div>
+          <div class="form-success" id="form-success">
+            ✓ Message sent! We'll be in touch within 24 hours.
+          </div>
+        </form>
+      </div>
+
+      <!-- DIRECT CONTACT -->
+      <div class="reveal reveal-delay-1">
+        <div class="contact-direct-title">Or reach out directly</div>
+        <div class="direct-methods">
+          <a href="https://wa.me/917001XXXXXX?text=Hi%20Ayush%20Studios%2C%20I%27d%20like%20to%20enquire%20about..." target="_blank" class="direct-method">
+            <div>
+              <div class="method-label">WhatsApp (Fastest)</div>
+              <div class="method-value">+91 70XX XXXXXX</div>
+            </div>
+            <span class="method-arrow">→</span>
+          </a>
+          <a href="mailto:ayush.studio@gmail.com" class="direct-method">
+            <div>
+              <div class="method-label">Email</div>
+              <div class="method-value">ayush.studio@gmail.com</div>
+            </div>
+            <span class="method-arrow">→</span>
+          </a>
+          <a href="tel:+917001XXXXXX" class="direct-method">
+            <div>
+              <div class="method-label">Phone Call</div>
+              <div class="method-value">+91 70XX XXXXXX</div>
+            </div>
+            <span class="method-arrow">→</span>
+          </a>
+          <a href="https://www.youtube.com/@AyushStudios" target="_blank" class="direct-method">
+            <div>
+              <div class="method-label">YouTube Portfolio</div>
+              <div class="method-value">@AyushStudios</div>
+            </div>
+            <span class="method-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+// Simple form feedback (replace Formspree ID for real backend)
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  // Comment out the next 2 lines when Formspree is configured
+  e.preventDefault();
+  document.getElementById('form-success').style.display = 'block';
+  this.reset();
+});
+</script>
+</body>
+</html>
