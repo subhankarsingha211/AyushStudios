@@ -373,6 +373,17 @@
       pointer-events: none;
     }
 
+    .avatar-dp {
+      width: 50px;
+      /* Sets the small width */
+      height: 50px;
+      /* Keeps it perfectly square */
+      border-radius: 50%;
+      /* Clips the square into a clean circle */
+      object-fit: cover;
+      /* Prevents the image from stretching or distorting */
+    }
+
     /* ── RECENT WORKS ── */
     .works-section {
       padding: var(--section-pad) 0;
@@ -574,6 +585,7 @@
       0% {
         transform: translateX(0);
       }
+
       100% {
         transform: translateX(calc(-50% - 12px));
       }
@@ -823,7 +835,7 @@
         studios. One creative standard. Infinite possibilities.</p>
       <div class="hero-actions">
         <a href="work.html" class="btn btn-gold">Explore Our Work</a>
-        <a href="contact.html" class="btn btn-outline">Book a Session</a>
+        <a href="services.html" class="btn btn-outline">Book a Session</a>
       </div>
     </div>
     <div class="hero-scroll">
@@ -851,7 +863,11 @@
             <span class="brand-tag">Recording</span>
             <span class="brand-tag">Mixing</span>
             <span class="brand-tag">Mastering</span>
-            <span class="brand-tag">Arrangement</span>
+            <span class="brand-tag">Music Arrangement</span>
+            <span class="brand-tag">Composition</span>
+            <span class="brand-tag">Lyrics</span>
+            <span class="brand-tag">Original Song</span>
+            <span class="brand-tag">Cover Song</span>
           </div>
           <a href="pages/harmonics.html" class="brand-link">Explore Studio →</a>
           <div class="brand-card-num">01</div>
@@ -859,16 +875,22 @@
         <div class="brand-card mm reveal reveal-delay-1">
           <div class="brand-name-small" style="display: flex; align-items: center; gap: 8px;">
             Photography & Video
-            <span style="font-size: 8px; padding: 2px 6px; background: rgba(42, 122, 111, 0.2); border: 0.5px solid var(--teal-accent); color: var(--teal-accent); letter-spacing: 1px; font-weight: 600; text-transform: uppercase; border-radius: 2px;">NEW WING</span>
+            <span
+              style="font-size: 8px; padding: 2px 6px; background: rgba(42, 122, 111, 0.2); border: 0.5px solid var(--teal-accent); color: var(--teal-accent); letter-spacing: 1px; font-weight: 600; text-transform: uppercase; border-radius: 2px;">NEW
+              WING</span>
           </div>
           <div class="brand-name">Moments Magic Studio</div>
-          <p class="brand-desc">Our brand new visual wing bringing elite visual production, cinematic music videos, and luxury wedding films to life. Meticulously crafted to match the creative standard of our audio work.</p>
+          <p class="brand-desc">Our brand new visual wing bringing elite visual production, cinematic music videos, and
+            luxury wedding films to life. Meticulously crafted to match the creative standard of our audio work.</p>
           <div class="brand-tags">
-            <span class="brand-tag" style="border-color: var(--teal-accent); color: var(--teal-accent); background: rgba(42, 122, 111, 0.12); font-weight: 600;">NEW LAUNCH</span>
+            <!-- <span class="brand-tag"
+              style="border-color: var(--teal-accent); color: var(--teal-accent); background: rgba(42, 122, 111, 0.12); font-weight: 600;">NEW
+              LAUNCH</span> -->
             <span class="brand-tag">Music Videos</span>
             <span class="brand-tag">Weddings</span>
-            <span class="brand-tag">Events</span>
-            <span class="brand-tag">Portraits</span>
+            <span class="brand-tag">Model Shoot</span>
+            <span class="brand-tag">Brand Shoot</span>
+            <span class="brand-tag">Any Events</span>
           </div>
           <a href="pages/moments.html" class="brand-link">Explore Studio →</a>
           <div class="brand-card-num">02</div>
@@ -900,8 +922,8 @@
             </svg></div>
         </a>
         <a href="https://www.youtube.com/watch?v=qc0spEfKqz0" target="_blank" class="work-card reveal reveal-delay-1">
-          <img class="work-thumb" src="https://img.youtube.com/vi/qc0spEfKqz0/maxresdefault.jpg"
-            alt="Bahu Manaratha" loading="lazy">
+          <img class="work-thumb" src="https://img.youtube.com/vi/qc0spEfKqz0/maxresdefault.jpg" alt="Bahu Manaratha"
+            loading="lazy">
           <div class="work-overlay">
             <div class="work-tag">Music Video · Bengali · 2022</div>
             <div class="work-name">Bahu Manaratha<br>Ishika Saha</div>
@@ -911,8 +933,8 @@
             </svg></div>
         </a>
         <a href="https://www.youtube.com/watch?v=Mzz4M9ra6SM" target="_blank" class="work-card reveal reveal-delay-2">
-          <img class="work-thumb" src="https://img.youtube.com/vi/Mzz4M9ra6SM/maxresdefault.jpg"
-            alt="Aao Na" loading="lazy">
+          <img class="work-thumb" src="https://img.youtube.com/vi/Mzz4M9ra6SM/maxresdefault.jpg" alt="Aao Na"
+            loading="lazy">
           <div class="work-overlay">
             <div class="work-tag">Music Video · Hindi · 2025</div>
             <div class="work-name">Aao Na<br>Abritte Talukder</div>
@@ -985,13 +1007,15 @@
               <div class="review-stars">★★★★★</div>
               <span class="review-badge">Harmonics Heaven</span>
             </div>
-            <p class="review-quote">The recording experience at Harmonics Heaven was extraordinary. Ayush understood my emotion before I even explained it. The vocal production and final mix for my release were beyond what I had imagined.</p>
+            <p class="review-quote">The recording experience at Harmonics Heaven was extraordinary. Ayush understood my
+              emotion before I even explained it. The vocal production and final mix for my release were beyond what I
+              had imagined.</p>
           </div>
           <div class="review-author-wrap">
-            <div class="review-avatar">SG</div>
+            <div class="review-avatar"></div>
             <div class="review-author-info">
               <div class="review-author-name">Saini Ghosh</div>
-              <div class="review-author-project">O Maa Tomar Agomon · Music Video</div>
+              <div class="review-author-project">Singer</div>
             </div>
           </div>
         </div>
@@ -1003,13 +1027,15 @@
               <div class="review-stars">★★★★★</div>
               <span class="review-badge">Harmonics Heaven</span>
             </div>
-            <p class="review-quote">From intricate vocal arrangement to final mastering, every detail was handled with utmost precision and care. Harmonics Heaven is truly a world-class sound sanctuary.</p>
+            <p class="review-quote">From intricate vocal arrangement to final mastering, every detail was handled with
+              utmost precision and care. Harmonics Heaven is truly a world-class sound sanctuary.</p>
           </div>
           <div class="review-author-wrap">
-            <div class="review-avatar">IS</div>
+            <div class="review-avatar"><img src="./Images/Ishika Saha.jpg.jpeg" alt="User Profile Picture"
+                class="avatar-dp"></div>
             <div class="review-author-info">
               <div class="review-author-name">Ishika Saha</div>
-              <div class="review-author-project">Multiple Productions · 2022–2024</div>
+              <div class="review-author-project">Singer</div>
             </div>
           </div>
         </div>
@@ -1021,13 +1047,15 @@
               <div class="review-stars">★★★★★</div>
               <span class="review-badge">Harmonics Heaven</span>
             </div>
-            <p class="review-quote">The acoustic treatment, state-of-the-art equipment, and Ayush's artistic guidance made all the difference. My tracks came out sounding massive and radio-ready on all platforms.</p>
+            <p class="review-quote">The acoustic treatment, state-of-the-art equipment, and Ayush's artistic guidance
+              made all the difference. My tracks came out sounding massive and radio-ready on all platforms.</p>
           </div>
           <div class="review-author-wrap">
-            <div class="review-avatar">AT</div>
+            <div class="review-avatar"><img src="./Images/Abritte Talukder.jpg.jpeg" alt="User Profile Picture"
+                class="avatar-dp"></div>
             <div class="review-author-info">
-              <div class="review-author-name">Abrittite Talukder</div>
-              <div class="review-author-project">Aao Na &amp; Devi Vandana · Single</div>
+              <div class="review-author-name">Abrittie Talukder</div>
+              <div class="review-author-project">Singer</div>
             </div>
           </div>
         </div>
@@ -1039,13 +1067,15 @@
               <div class="review-stars">★★★★★</div>
               <span class="review-badge teal">Moments Magic</span>
             </div>
-            <p class="review-quote">Ayush Studios delivered unbelievable cinematic visuals and pristine sound engineering. The lighting, color grading, and sonic impact surpassed every expectation.</p>
+            <p class="review-quote">Ayush Studios delivered unbelievable cinematic visuals and pristine sound
+              engineering. The lighting, color grading, and sonic impact surpassed every expectation.</p>
           </div>
           <div class="review-author-wrap">
-            <div class="review-avatar teal-avatar">BB</div>
+            <div class="review-avatar teal-avatar"><img src="./Images/Biplab Barman.jpg.jpeg" alt="User Profile Picture"
+                class="avatar-dp"></div>
             <div class="review-author-info">
-              <div class="review-author-name">Biplap Barman</div>
-              <div class="review-author-project">Moments Magic &amp; Harmonics · Production</div>
+              <div class="review-author-name">Biplab Barman</div>
+              <div class="review-author-project">Lyricist &amp; Music Composer</div>
             </div>
           </div>
         </div>
@@ -1057,13 +1087,15 @@
               <div class="review-stars">★★★★★</div>
               <span class="review-badge">Harmonics Heaven</span>
             </div>
-            <p class="review-quote">Working with Ayush Studios transformed how I hear my own vocals. The warmth, clarity, and depth in the final mix gave my music a whole new dimension.</p>
+            <p class="review-quote">Working with Ayush Studios transformed how I hear my own vocals. The warmth,
+              clarity, and depth in the final mix gave my music a whole new dimension.</p>
           </div>
           <div class="review-author-wrap">
-            <div class="review-avatar">AB</div>
+            <div class="review-avatar"><img src="./Images/Ayuska Bhowmik.webp" alt="User Profile Picture"
+                class="avatar-dp"></div>
             <div class="review-author-info">
-              <div class="review-author-name">Ayushka Bhowmik</div>
-              <div class="review-author-project">Teri Umeed Tera Intezaar · Single</div>
+              <div class="review-author-name">Ayuska Bhowmik</div>
+              <div class="review-author-project">Singer</div>
             </div>
           </div>
         </div>
@@ -1075,13 +1107,15 @@
               <div class="review-stars">★★★★★</div>
               <span class="review-badge teal">Moments Magic</span>
             </div>
-            <p class="review-quote">A truly magical creative journey. Their professionalism, patience with revisions, and artistic visual storytelling made our project an absolute masterpiece.</p>
+            <p class="review-quote">A truly magical creative journey. Their professionalism, patience with revisions,
+              and artistic visual storytelling made our project an absolute masterpiece.</p>
           </div>
           <div class="review-author-wrap">
-            <div class="review-avatar teal-avatar">JB</div>
+            <div class="review-avatar teal-avatar"><img src="./Images/Jaydipa Biswas.jpg.jpeg"
+                alt="User Profile Picture" class="avatar-dp"></div>
             <div class="review-author-info">
               <div class="review-author-name">Jaydipa Biswas</div>
-              <div class="review-author-project">Bengali Original &amp; Visual Storytelling</div>
+              <div class="review-author-project">Singer</div>
             </div>
           </div>
         </div>
@@ -1095,13 +1129,15 @@
               <div class="review-stars">★★★★★</div>
               <span class="review-badge">Harmonics Heaven</span>
             </div>
-            <p class="review-quote">The recording experience at Harmonics Heaven was extraordinary. Ayush understood my emotion before I even explained it. The vocal production and final mix for my release were beyond what I had imagined.</p>
+            <p class="review-quote">The recording experience at Harmonics Heaven was extraordinary. Ayush understood my
+              emotion before I even explained it. The vocal production and final mix for my release were beyond what I
+              had imagined.</p>
           </div>
           <div class="review-author-wrap">
             <div class="review-avatar">SG</div>
             <div class="review-author-info">
               <div class="review-author-name">Saini Ghosh</div>
-              <div class="review-author-project">O Maa Tomar Agomon · Music Video</div>
+              <div class="review-author-project">Singer</div>
             </div>
           </div>
         </div>
@@ -1113,13 +1149,15 @@
               <div class="review-stars">★★★★★</div>
               <span class="review-badge">Harmonics Heaven</span>
             </div>
-            <p class="review-quote">From intricate vocal arrangement to final mastering, every detail was handled with utmost precision and care. Harmonics Heaven is truly a world-class sound sanctuary.</p>
+            <p class="review-quote">From intricate vocal arrangement to final mastering, every detail was handled with
+              utmost precision and care. Harmonics Heaven is truly a world-class sound sanctuary.</p>
           </div>
           <div class="review-author-wrap">
-            <div class="review-avatar">IS</div>
+            <div class="review-avatar"><img src="./Images/Ishika Saha.jpg.jpeg" alt="User Profile Picture"
+                class="avatar-dp"></div>
             <div class="review-author-info">
               <div class="review-author-name">Ishika Saha</div>
-              <div class="review-author-project">Multiple Productions · 2022–2024</div>
+              <div class="review-author-project">Singer</div>
             </div>
           </div>
         </div>
@@ -1131,13 +1169,15 @@
               <div class="review-stars">★★★★★</div>
               <span class="review-badge">Harmonics Heaven</span>
             </div>
-            <p class="review-quote">The acoustic treatment, state-of-the-art equipment, and Ayush's artistic guidance made all the difference. My tracks came out sounding massive and radio-ready on all platforms.</p>
+            <p class="review-quote">The acoustic treatment, state-of-the-art equipment, and Ayush's artistic guidance
+              made all the difference. My tracks came out sounding massive and radio-ready on all platforms.</p>
           </div>
           <div class="review-author-wrap">
-            <div class="review-avatar">AT</div>
+            <div class="review-avatar"><img src="./Images/Abritte Talukder.jpg.jpeg" alt="User Profile Picture"
+                class="avatar-dp"></div>
             <div class="review-author-info">
               <div class="review-author-name">Abrittite Talukder</div>
-              <div class="review-author-project">Aao Na &amp; Devi Vandana · Single</div>
+              <div class="review-author-project">Singer</div>
             </div>
           </div>
         </div>
@@ -1149,13 +1189,15 @@
               <div class="review-stars">★★★★★</div>
               <span class="review-badge teal">Moments Magic</span>
             </div>
-            <p class="review-quote">Ayush Studios delivered unbelievable cinematic visuals and pristine sound engineering. The lighting, color grading, and sonic impact surpassed every expectation.</p>
+            <p class="review-quote">Ayush Studios delivered unbelievable cinematic visuals and pristine sound
+              engineering. The lighting, color grading, and sonic impact surpassed every expectation.</p>
           </div>
           <div class="review-author-wrap">
-            <div class="review-avatar teal-avatar">BB</div>
+            <div class="review-avatar teal-avatar"><img src="./Images/Biplab Barman.jpg.jpeg" alt="User Profile Picture"
+                class="avatar-dp"></div>
             <div class="review-author-info">
               <div class="review-author-name">Biplap Barman</div>
-              <div class="review-author-project">Moments Magic &amp; Harmonics · Production</div>
+              <div class="review-author-project">Lyricist &amp; Music Composer</div>
             </div>
           </div>
         </div>
@@ -1167,13 +1209,15 @@
               <div class="review-stars">★★★★★</div>
               <span class="review-badge">Harmonics Heaven</span>
             </div>
-            <p class="review-quote">Working with Ayush Studios transformed how I hear my own vocals. The warmth, clarity, and depth in the final mix gave my music a whole new dimension.</p>
+            <p class="review-quote">Working with Ayush Studios transformed how I hear my own vocals. The warmth,
+              clarity, and depth in the final mix gave my music a whole new dimension.</p>
           </div>
           <div class="review-author-wrap">
-            <div class="review-avatar">AB</div>
+            <div class="review-avatar"><img src="./Images/Ayuska Bhowmik.webp" alt="User Profile Picture"
+                class="avatar-dp"></div>
             <div class="review-author-info">
               <div class="review-author-name">Ayushka Bhowmik</div>
-              <div class="review-author-project">Teri Umeed Tera Intezaar · Single</div>
+              <div class="review-author-project">Singer</div>
             </div>
           </div>
         </div>
@@ -1185,13 +1229,15 @@
               <div class="review-stars">★★★★★</div>
               <span class="review-badge teal">Moments Magic</span>
             </div>
-            <p class="review-quote">A truly magical creative journey. Their professionalism, patience with revisions, and artistic visual storytelling made our project an absolute masterpiece.</p>
+            <p class="review-quote">A truly magical creative journey. Their professionalism, patience with revisions,
+              and artistic visual storytelling made our project an absolute masterpiece.</p>
           </div>
           <div class="review-author-wrap">
-            <div class="review-avatar teal-avatar">JB</div>
+            <div class="review-avatar teal-avatar"><img src="./Images/Jaydipa Biswas.jpg.jpeg"
+                alt="User Profile Picture" class="avatar-dp"></div>
             <div class="review-author-info">
               <div class="review-author-name">Jaydipa Biswas</div>
-              <div class="review-author-project">Bengali Original &amp; Visual Storytelling</div>
+              <div class="review-author-project">Singer</div>
             </div>
           </div>
         </div>
@@ -1209,7 +1255,7 @@
         <p>Whether you're producing a record, engineering a mix, or planning a cinematic visual production — we're here
           to elevate your vision.</p>
         <div class="cta-actions">
-          <a href="contact.html" class="btn btn-gold">Start the Conversation</a>
+          <a href="services.html" class="btn btn-gold">Book Your Project</a>
           <a href="work.html" class="btn btn-outline">See Our Portfolio</a>
         </div>
       </div>
@@ -1219,7 +1265,7 @@
   <div id="footer-placeholder"></div>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/917001XXXXXX" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+  <a href="https://wa.me/919775391926" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
     title="Chat on WhatsApp">
     <svg viewBox="0 0 24 24">
       <path
