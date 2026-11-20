@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Ayush Studios | The Story Behind the Sound</title>
+  <meta name="description" content="Meet the visionary behind Ayush Studios. Over a decade of audio engineering, music production, photography, and music education in Cooch Behar, West Bengal.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .about-hero {
+      padding: calc(var(--nav-h) + 80px) 0 80px;
+      border-bottom: 0.5px solid rgba(201,168,76,0.1);
+      background: radial-gradient(ellipse 80% 50% at 75% 30%, rgba(201, 168, 76, 0.07) 0%, transparent 65%);
+    }
+    .about-hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    @media (max-width: 768px) { .about-hero-inner { grid-template-columns: 1fr; gap: 40px; } }
+    .about-hero-quote {
+      font-family: var(--font-display); font-size: clamp(36px, 5vw, 60px);
+      font-weight: 300; line-height: 1.1; color: var(--cream); font-style: italic;
+    }
+    .about-hero-quote em { color: var(--gold); font-style: normal; }
+    .about-hero-right { }
+    .about-photo-placeholder {
+      width: 100%; aspect-ratio: 3/4;
+      background: linear-gradient(145deg, rgba(28, 26, 22, 0.9) 0%, rgba(18, 17, 14, 0.96) 100%);
+      border: 0.5px solid rgba(201,168,76,0.2);
+      border-radius: 4px;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.5);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; position: relative; overflow: hidden;
+    }
+    .about-photo-placeholder::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 30%, rgba(201,168,76,0.08) 0%, transparent 70%);
+    }
+    .about-photo-icon { font-size: 48px; opacity: 0.3; }
+    .about-photo-text { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .about-photo-note { font-size: 11px; color: var(--gold-dim); font-style: italic; text-align: center; margin-top: 4px; }
+
+    .about-story {
+      padding: var(--section-pad) 0;
+      border-bottom: 0.5px solid rgba(201,168,76,0.1);
+      background: linear-gradient(180deg, rgba(18, 17, 14, 0.7) 0%, rgba(13, 12, 10, 0.85) 100%);
+    }
+    .about-story-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
+    @media (max-width: 768px) { .about-story-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .about-story-label-col { }
+    .about-story-content h2 { font-family: var(--font-display); font-size: clamp(28px,4vw,42px); font-weight: 300; color: var(--cream); margin-bottom: 32px; line-height: 1.2; }
+    .about-story-content p { font-size: 15px; color: var(--muted-light); line-height: 1.9; margin-bottom: 20px; }
+    .about-story-content blockquote {
+      border-left: 2px solid var(--gold); padding-left: 24px; margin: 36px 0;
+      font-family: var(--font-display); font-size: 20px; font-style: italic;
+      color: var(--cream); line-height: 1.6;
+    }
+
+    .principles-section {
+      padding: var(--section-pad) 0;
+      border-bottom: 0.5px solid rgba(201,168,76,0.1);
+      background: linear-gradient(180deg, rgba(22, 20, 16, 0.8) 0%, rgba(15, 14, 11, 0.95) 100%);
+    }
+    .principles-title { font-family: var(--font-display); font-size: clamp(28px,4vw,44px); font-weight: 300; color: var(--cream); text-align: center; margin-bottom: 60px; }
+    .principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 768px) { .principles-grid { grid-template-columns: 1fr; } }
+    .principle-card {
+      padding: 40px 36px;
+      background: linear-gradient(150deg, rgba(28, 26, 22, 0.88) 0%, rgba(18, 17, 14, 0.96) 100%);
+      border: 0.5px solid rgba(201,168,76,0.16);
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .principle-card:hover {
+      border-color: rgba(201, 168, 76, 0.45);
+      transform: translateY(-3px);
+    }
+    .principle-num { font-family: var(--font-caps); font-size: 52px; color: rgba(201,168,76,0.18); line-height: 1; margin-bottom: 20px; }
+    .principle-title { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--cream); margin-bottom: 14px; }
+    .principle-desc { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+    .stats-about {
+      padding: var(--section-pad) 0;
+      border-bottom: 0.5px solid rgba(201,168,76,0.1);
+      background: linear-gradient(180deg, rgba(14, 13, 10, 0.85) 0%, rgba(20, 18, 15, 0.7) 100%);
+    }
+
+    .brands-about {
+      padding: var(--section-pad) 0;
+      background: linear-gradient(180deg, rgba(18, 17, 14, 0.75) 0%, rgba(12, 11, 9, 0.95) 100%);
+    }
+    .brands-about h2 { font-family: var(--font-display); font-size: clamp(28px,4vw,44px); font-weight: 300; color: var(--cream); text-align: center; margin-bottom: 60px; }
+    .brand-pills { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .brand-pill {
+      padding: 32px 48px;
+      background: linear-gradient(150deg, rgba(28, 26, 22, 0.9) 0%, rgba(18, 17, 14, 0.96) 100%);
+      border: 0.5px solid rgba(201,168,76,0.16);
+      border-radius: 4px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      min-width: 240px;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .brand-pill:hover {
+      border-color: rgba(201, 168, 76, 0.45);
+      transform: translateY(-3px);
+    }
+    .brand-pill-icon { font-size: 28px; margin-bottom: 12px; }
+    .brand-pill-name { font-family: var(--font-display); font-size: 18px; color: var(--cream); margin-bottom: 6px; }
+    .brand-pill-role { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+  </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="container">
+    <div class="about-hero-inner">
+      <div class="reveal">
+        <div class="section-label">Our Story</div>
+        <h1 class="about-hero-quote">"Where Sound<br>Meets <em>Soul.</em>"</h1>
+        <p style="font-size:14px;color:var(--muted);line-height:1.9;margin-top:24px;">Every great project begins with a vision. We transform your creative ideas into unforgettable experiences — one track, one frame, one lesson at a time.</p>
+        <a href="contact.html" class="btn btn-outline" style="margin-top:32px;">Start the Conversation →</a>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="about-photo-placeholder">
+          <div class="about-photo-icon" style="opacity:0.15; font-size:20px; font-family:var(--font-caps); letter-spacing:2px;">AYUSH STUDIOS</div>
+          <div class="about-photo-text" style="margin-top:12px;">Studio Director</div>
+          <div class="about-photo-note">Professional Portrait</div>
+        </div>
+        <div style="margin-top:16px;padding:20px 24px;background:var(--ink-2);border:0.5px solid rgba(201,168,76,0.12);">
+          <div style="font-family:var(--font-display);font-size:22px;color:var(--cream);">Ayush <span style="color:var(--gold)">—</span></div>
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:4px;">Founder · Audio Engineer · Producer</div>
+          <div style="font-size:13px;color:var(--muted-light);margin-top:12px;line-height:1.7;">West Bengal, India</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="about-story">
+  <div class="container">
+    <div class="about-story-grid">
+      <div class="reveal">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:20px;line-height:2.5;">
+          <div>Audio Engineer</div>
+          <div>Music Producer</div>
+          <div>Photographer</div>
+          <div>Creative Director</div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="about-story-content">
+          <h2>More than a studio.<br>A creative partnership.</h2>
+          <p>With over a decade of experience in audio engineering and music production, our studio director has worked with artists across genres — from devotional and classical compositions to Hindi and Bengali contemporary music. The journey began as a deep passion for sound, evolving into a professional craft with a clear mission.</p>
+          <blockquote>"Every artist deserves to be heard in their truest form."</blockquote>
+          <p>This philosophy drives every decision in the studio — from microphone placement to the final master. The approach is never about imposing a signature sound, but about enhancing what makes each artist uniquely extraordinary.</p>
+          <p>What sets Ayush Studios apart is the ability to connect deeply with artists on both a technical and emotional level. Sessions aren't just engineered — they're collaborated, mentored, and shaped to bring out performances that artists didn't know they had within them.</p>
+          <p>Today, Ayush Studios operates as a full creative umbrella — Harmonics Heaven for music production and Moments Magic for visual storytelling.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="principles-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label" style="justify-content:center;">What We Stand For</div>
+      <h2 class="principles-title">Our Core Principles</h2>
+    </div>
+    <div class="principles-grid">
+      <div class="principle-card reveal">
+        <div class="principle-num">01</div>
+        <div class="principle-title">Intentional Creation</div>
+        <p class="principle-desc">No shortcuts. No preset templates. Every arrangement, every shot, every lesson is tailored specifically to the emotion and vision it deserves. We refuse mediocrity.</p>
+      </div>
+      <div class="principle-card reveal reveal-delay-1">
+        <div class="principle-num">02</div>
+        <div class="principle-title">Sonic Purity</div>
+        <p class="principle-desc">We obsess over signal flow, acoustics, and the organic feel of instruments. Every decision is made to ensure pristine, radio-ready fidelity — nothing less.</p>
+      </div>
+      <div class="principle-card reveal reveal-delay-2">
+        <div class="principle-num">03</div>
+        <div class="principle-title">Artist Partnership</div>
+        <p class="principle-desc">We are collaborators, not just technicians. Your vision is the blueprint. Our expertise is the foundation. Together, we build something that outlasts the moment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-about">
+  <div class="container">
+    <div class="section-label reveal" style="justify-content:center;">By the Numbers</div>
+    <div class="stats-grid reveal" style="margin-top:32px;">
+      <div class="stat-item">
+        <div class="stat-number" data-count="10" data-suffix="+">0+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="250" data-suffix="+">0+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="50" data-suffix="M+">0M+</div>
+        <div class="stat-label">Organic Streams</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="120" data-suffix="+">0+</div>
+        <div class="stat-label">Happy Artists</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO STUDIOS -->
+<section class="brands-about">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label" style="justify-content:center;">The Spaces</div>
+      <h2>Two specialized studios.<br>One creative standard.</h2>
+    </div>
+    <div class="brand-pills reveal">
+      <a href="pages/harmonics.html" class="brand-pill" style="border-top:2px solid var(--gold);">
+        <div class="brand-pill-name">Harmonics Heaven</div>
+        <div class="brand-pill-role">Music & Audio Studio</div>
+      </a>
+      <a href="pages/moments.html" class="brand-pill" style="border-top:2px solid var(--teal-accent);">
+        <div class="brand-pill-name">Moments Magic</div>
+        <div class="brand-pill-role">Photography & Video</div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <a href="contact.html" class="btn btn-gold">Work With Us</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

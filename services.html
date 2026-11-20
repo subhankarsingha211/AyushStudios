@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Ayush Studios | Premium Music & Video Production</title>
+  <meta name="description"
+    content="Explore services from Ayush Studios: professional music recording & production, mixing, mastering, photography, and cinematic videography packages.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .services-hero {
+      padding: calc(var(--nav-h) + 80px) 0 60px;
+      text-align: center;
+      border-bottom: 0.5px solid rgba(201, 168, 76, 0.08);
+    }
+
+    .services-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--cream);
+    }
+
+    .services-hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .services-hero p {
+      font-size: 15px;
+      color: var(--muted-light);
+      max-width: 560px;
+      margin: 20px auto 0;
+      line-height: 1.8;
+    }
+
+    /* ── SERVICE SWITCHER ── */
+    .service-switcher-wrap {
+      position: relative;
+      background: var(--ink);
+      border-bottom: 0.5px solid rgba(201, 168, 76, 0.12);
+      padding: 24px 0 32px;
+    }
+
+    .service-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: var(--ink-2);
+      border: 0.5px solid rgba(201, 168, 76, 0.18);
+      border-radius: 4px;
+      padding: 4px;
+      position: relative;
+      gap: 0;
+    }
+
+    .switcher-center {
+      display: flex;
+      justify-content: center;
+    }
+
+    .switcher-btn {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 28px;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-family: var(--font-body);
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 2px;
+      border: none;
+      background: transparent;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .switcher-btn svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    .switcher-btn.active {
+      color: var(--ink);
+    }
+
+    .switcher-btn.active.teal-active {
+      color: white;
+    }
+
+    .switcher-pill {
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      border-radius: 2px;
+      background: var(--gold);
+      transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1), width 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.35s ease;
+      z-index: 0;
+    }
+
+    /* ── NOTICEABLE STUDIO REVEALING ANIMATION ── */
+    .service-panel {
+      display: block;
+    }
+
+    .service-panel.hidden {
+      display: none !important;
+    }
+
+    .service-panel.studio-revealing .service-block-header {
+      animation: studioFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .service-panel.studio-revealing .package-card:nth-child(1) {
+      animation: cardRevealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+    }
+
+    .service-panel.studio-revealing .package-card:nth-child(2) {
+      animation: cardRevealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+    }
+
+    .service-panel.studio-revealing .package-card:nth-child(3) {
+      animation: cardRevealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+    }
+
+    .service-panel.studio-revealing .process-step:nth-child(1) {
+      animation: studioFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+    }
+
+    .service-panel.studio-revealing .process-step:nth-child(2) {
+      animation: studioFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.33s both;
+    }
+
+    .service-panel.studio-revealing .process-step:nth-child(3) {
+      animation: studioFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.41s both;
+    }
+
+    .service-panel.studio-revealing .process-step:nth-child(4) {
+      animation: studioFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.49s both;
+    }
+
+    .service-panel.studio-revealing #customquote {
+      animation: studioFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+    }
+
+    @keyframes studioFadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(32px);
+        filter: blur(5px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes cardRevealUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.96);
+        filter: blur(4px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    .switcher-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .service-block {
+      padding: var(--section-pad) 0;
+      border-bottom: 0.5px solid rgba(201, 168, 76, 0.08);
+    }
+
+    .service-block-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-bottom: 64px;
+    }
+
+    @media (max-width: 768px) {
+      .service-block-header {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .service-block-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.1;
+    }
+
+    .service-block-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .service-block-title.teal em {
+      color: var(--teal-accent);
+    }
+
+    .service-block-title.purple em {
+      color: #8B7AC8;
+    }
+
+    .service-block-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .service-block-desc p {
+      margin-bottom: 16px;
+    }
+
+    /* ── PACKAGES FILTER BAR ── */
+    .packages-filter-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    .packages-filter-bar {
+      display: inline-flex;
+      align-items: center;
+      border: 0.5px solid rgba(201, 168, 76, 0.22);
+      background: var(--ink-2);
+      border-radius: 4px;
+      padding: 4px;
+      gap: 4px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .pkg-filter-btn {
+      padding: 9px 20px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-family: var(--font-body);
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      border-radius: 2px;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .pkg-filter-btn.active {
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .pkg-filter-btn:hover:not(.active) {
+      color: var(--cream);
+      background: rgba(201, 168, 76, 0.08);
+    }
+
+    @media (max-width: 768px) {
+      .packages-filter-bar {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+      }
+      .pkg-filter-btn {
+        padding: 9px 10px;
+        font-size: 10px;
+        text-align: center;
+      }
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .packages-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .package-card {
+      padding: 40px 32px 36px;
+      background: linear-gradient(150deg, rgba(28, 26, 22, 0.9) 0%, rgba(18, 17, 14, 0.96) 100%);
+      position: relative;
+      border: 0.5px solid rgba(201, 168, 76, 0.16);
+      border-radius: 4px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: border-color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .package-card:hover {
+      background: linear-gradient(150deg, rgba(34, 32, 27, 0.95) 0%, rgba(22, 21, 17, 0.98) 100%);
+      border-color: rgba(201, 168, 76, 0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(201, 168, 76, 0.08);
+    }
+
+    .package-card.featured {
+      border: 1px solid var(--gold);
+      background: linear-gradient(150deg, rgba(36, 33, 27, 0.95) 0%, rgba(22, 20, 16, 0.98) 100%);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6), 0 0 28px rgba(201, 168, 76, 0.12);
+    }
+
+    .package-card.featured-teal {
+      border: 1px solid var(--teal-accent);
+      background: linear-gradient(150deg, rgba(20, 32, 30, 0.95) 0%, rgba(16, 22, 21, 0.98) 100%);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6), 0 0 28px rgba(42, 122, 111, 0.14);
+    }
+
+    .package-card.featured-purple {
+      border-top-color: #8B7AC8;
+    }
+
+    .featured-badge {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--ink);
+      padding: 4px 10px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .featured-badge.teal {
+      background: var(--teal-accent);
+      color: white;
+    }
+
+    .featured-badge.purple {
+      background: #5B4A8A;
+      color: white;
+    }
+
+    .package-name {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .package-price {
+      font-size: 13px;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .package-price.teal {
+      color: var(--teal-accent);
+    }
+
+    .package-price.purple {
+      color: #8B7AC8;
+    }
+
+    .package-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .package-features li {
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .package-features li::before {
+      content: '—';
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 64px;
+    }
+
+    @media (max-width: 640px) {
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .process-step {
+      padding: 32px 24px;
+      background: linear-gradient(145deg, rgba(26, 24, 20, 0.85) 0%, rgba(18, 16, 13, 0.95) 100%);
+      border: 0.5px solid rgba(201, 168, 76, 0.14);
+      border-radius: 4px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .process-step:hover {
+      border-color: rgba(201, 168, 76, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .process-num {
+      font-family: var(--font-caps);
+      font-size: 48px;
+      color: rgba(201, 168, 76, 0.2);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .process-step-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .process-step-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* Estimatator & Modal Styles */
+    .custom-build {
+      background: linear-gradient(145deg, rgba(28, 26, 22, 0.92) 0%, rgba(18, 17, 14, 0.98) 100%);
+      border: 0.5px solid rgba(201, 168, 76, 0.18);
+      border-radius: 4px;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      margin-bottom: 32px;
+    }
+
+    .q-input {
+      width: 100%;
+      background: var(--ink);
+      border: 0.5px solid rgba(201, 168, 76, 0.15);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color var(--transition);
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: none !important;
+    }
+
+    .q-input:focus {
+      border-color: var(--gold);
+    }
+
+    select.q-input {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='1' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+      background-repeat: no-repeat !important;
+      background-position: right 16px center !important;
+      padding-right: 40px !important;
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+      appearance: none !important;
+    }
+
+    select.q-input option,
+    select.q-input optgroup {
+      background: var(--ink-2);
+      background-image: none !important;
+      color: var(--cream);
+    }
+
+    .toggle-option {
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+      border: 0.5px solid rgba(201, 168, 76, 0.15);
+      background: var(--ink);
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .toggle-option:hover {
+      border-color: rgba(201, 168, 76, 0.4);
+      background: rgba(201, 168, 76, 0.03);
+    }
+
+    .toggle-option input {
+      display: none;
+    }
+
+    .toggle-option span {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted-light);
+      position: relative;
+      padding-left: 28px;
+      width: 100%;
+    }
+
+    .toggle-option span::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      border: 0.5px solid rgba(201, 168, 76, 0.3);
+      background: var(--ink-2);
+      transition: var(--transition);
+    }
+
+    .toggle-option input:checked+span::before {
+      background-color: var(--gold);
+      border-color: var(--gold);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230D0C0A' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+      background-size: 10px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .toggle-option:has(input:checked) {
+      border-color: var(--gold);
+      background-color: rgba(201, 168, 76, 0.08);
+    }
+
+    .toggle-option:has(input:checked) span {
+      color: var(--cream);
+    }
+
+    .scope-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .premium-card {
+      background: var(--ink);
+      border: 0.5px solid rgba(201, 168, 76, 0.15);
+      padding: 24px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .premium-card:hover {
+      border-color: rgba(201, 168, 76, 0.4);
+    }
+
+    .premium-card.popular {
+      border-color: var(--gold);
+      background: rgba(201, 168, 76, 0.08);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(13, 12, 10, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: var(--ink-2);
+      border: 0.5px solid rgba(201, 168, 76, 0.25);
+      padding: 48px 40px;
+      width: 90%;
+      max-width: 520px;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--muted);
+      line-height: 1;
+      transition: color var(--transition);
+    }
+
+    .close-modal:hover {
+      color: var(--gold);
+    }
+
+    .modal-content h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .modal-content>p {
+      color: var(--muted-light);
+      margin-bottom: 28px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    /* ── HIGHLIGHTED FIRST COME FIRST SERVE BADGE ── */
+    .fcfs-section-wrap {
+      text-align: center;
+      margin: 50px auto 30px auto;
+    }
+
+    .fcfs-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px 28px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.12) 0%, rgba(20, 18, 14, 0.95) 100%);
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 0 20px rgba(201, 168, 76, 0.15);
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+    }
+
+    .fcfs-pill-badge:hover {
+      border-color: rgba(201, 168, 76, 0.65);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55), 0 0 30px rgba(201, 168, 76, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .fcfs-pulse-ring {
+      position: relative;
+      width: 10px;
+      height: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .fcfs-pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--gold);
+    }
+
+    .fcfs-pulse-ring::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      animation: fcfsPulseRing 2.2s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+    }
+
+    @keyframes fcfsPulseRing {
+      0% { transform: scale(0.6); opacity: 0.9; }
+      50% { transform: scale(1.4); opacity: 0.1; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    .fcfs-primary-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      text-shadow: 0 0 12px rgba(201, 168, 76, 0.4);
+    }
+
+    .fcfs-dot-divider {
+      color: rgba(201, 168, 76, 0.45);
+      font-size: 12px;
+    }
+
+    .fcfs-secondary-text {
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.85;
+      font-weight: 400;
+    }
+
+    .modal-fcfs-note {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      margin-top: 18px;
+      padding: 10px 16px;
+      border-radius: 6px;
+      background: rgba(201, 168, 76, 0.08);
+      border: 0.5px solid rgba(201, 168, 76, 0.25);
+    }
+
+    .modal-fcfs-text {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--gold-light);
+    }
+
+    @media (max-width: 680px) {
+      .fcfs-pill-badge {
+        flex-direction: column;
+        gap: 6px;
+        padding: 14px 20px;
+        border-radius: 12px;
+      }
+      .fcfs-dot-divider {
+        display: none;
+      }
+      .fcfs-secondary-text {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="nav-placeholder"></div>
+
+  <!-- HERO -->
+  <section class="services-hero">
+    <div class="container">
+      <div class="section-label" style="justify-content:center;">Our Services</div>
+      <h1>Turn Your Vision Into<br><em>Undeniable Art.</em></h1>
+      <p>Premium services across music production, photography, videography, and music education — tailored for artists,
+        brands, and storytellers.</p>
+    </div>
+  </section>
+
+  <!-- SERVICE SWITCHER -->
+  <div class="service-switcher-wrap" id="switcher-bar">
+    <div class="container">
+      <div class="switcher-label">Choose a Studio</div>
+      <div class="switcher-center">
+        <div class="service-switcher" id="service-switcher">
+          <div class="switcher-pill" id="switcher-pill"></div>
+          <button class="switcher-btn active" id="btn-music" onclick="switchService('music')" aria-label="Music Services">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13"/>
+              <circle cx="6" cy="18" r="3"/>
+              <circle cx="18" cy="16" r="3"/>
+            </svg>
+            Harmonics Heaven
+          </button>
+          <button class="switcher-btn" id="btn-video" onclick="switchService('video')" aria-label="Video Services">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 7l-7 5 7 5V7z"/>
+              <rect x="1" y="5" width="15" height="14" rx="2"/>
+            </svg>
+            Moments Magic
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ HARMONICS HEAVEN ══ -->
+  <div id="panel-music" class="service-panel studio-revealing">
+  <section class="service-block" id="music">
+    <div class="container">
+      <div class="service-block-header reveal">
+        <div>
+          <div class="section-label">Harmonics Heaven Studio</div>
+          <h2 class="service-block-title">Music <em>Production</em></h2>
+        </div>
+        <div class="service-block-desc">
+          <p>From the first note to the final master, we sculpt your sound with uncompromising quality. Every session is
+            a collaboration — your vision, our expertise.</p>
+          <p>Industry-grade equipment, acoustically treated spaces, and over a decade of engineering experience ensure
+            your track sounds exactly as it deserves.</p>
+          <a href="#customquote" class="btn btn-outline" style="margin-top:8px;">Request a Custom Quote →</a>
+        </div>
+      </div>
+      <!-- ── PACKAGE FILTER TABS ── -->
+      <div class="packages-filter-wrap reveal">
+        <div class="packages-filter-bar" role="tablist" aria-label="Music Package Categories">
+          <button class="pkg-filter-btn active" onclick="switchMusicPackages('original', this)">Original Song</button>
+          <button class="pkg-filter-btn" onclick="switchMusicPackages('cover', this)">Cover Song</button>
+          <button class="pkg-filter-btn" onclick="switchMusicPackages('commercial', this)">Jingles &amp; Ads</button>
+          <button class="pkg-filter-btn" onclick="switchMusicPackages('voice', this)">Voice &amp; Audiobooks</button>
+        </div>
+      </div>
+
+      <div class="packages-grid reveal" id="music-packages-grid">
+        <div class="package-card">
+          <div class="package-name">Starter</div>
+          <div class="package-price">Single track recording &amp; mix</div>
+          <ul class="package-features">
+            <li>Studio recording (1 song)</li>
+            <li>Basic arrangement &amp; melody</li>
+            <li>Vocal editing &amp; pitch correction</li>
+            <li>Stereo mixing &amp; mastering</li>
+            <li>2 revision rounds</li>
+            <li>WAV + MP3 delivery</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">Get a Quote</a>
+        </div>
+        <div class="package-card featured">
+          <div class="featured-badge">Most Popular</div>
+          <div class="package-name">Professional</div>
+          <div class="package-price">Full production · EP ready</div>
+          <ul class="package-features">
+            <li>Studio recording (up to 3 songs)</li>
+            <li>Full music arrangement &amp; orchestration</li>
+            <li>Creative vocal coaching &amp; guidance</li>
+            <li>Industry-grade mixing &amp; mastering</li>
+            <li>Unlimited revision rounds</li>
+            <li>Streaming-ready masters &amp; stems</li>
+          </ul>
+          <a href="contact.html" class="btn btn-gold" style="width:100%;justify-content:center;">Get a Quote</a>
+        </div>
+        <div class="package-card">
+          <div class="package-name">Album Special</div>
+          <div class="package-price">Complete album production</div>
+          <ul class="package-features">
+            <li>10+ song studio production sessions</li>
+            <li>Complete bespoke arrangement per track</li>
+            <li>Live instruments &amp; session musicians</li>
+            <li>Stem mixing &amp; analog mastering</li>
+            <li>Artist development &amp; distribution kit</li>
+            <li>Priority scheduling &amp; release support</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">Get a Quote</a>
+        </div>
+      </div>
+
+      <!-- ══ DYNAMIC MUSIC CONFIGURATOR ══ -->
+      <div class="reveal" style="margin-top: 80px;" id="customquote">
+        <div class="divider" style="margin-bottom: 80px;"></div>
+        <div class="service-block-header" style="margin-bottom: 40px;">
+          <div>
+            <div class="section-label">Interactive Planner</div>
+            <h2 class="service-block-title">Build Your <em>Custom Project</em></h2>
+          </div>
+          <div class="service-block-desc">
+            <p>Estimate your music production package dynamically. Select the number of songs, customize services per
+              track, and generate a tailored quote instantly.</p>
+          </div>
+        </div>
+
+        <div id="dynamic-music-system" class="custom-build" style="background: transparent; border: none; padding: 0;">
+          <div class="custom-build" style="text-align: center;">
+            <h3
+              style="font-family: var(--font-display); font-size: 24px; font-weight: 300; color: var(--cream); margin-bottom: 24px;">
+              How many songs are you producing?</h3>
+            <select id="num-songs-selector" class="q-input"
+              style="max-width: 320px; margin: 0 auto; display: block; text-align: center;"
+              onchange="generateSongConfigs()">
+              <option value="0">Select number of songs</option>
+              <option value="1">1 Song</option>
+              <option value="2">2 Songs</option>
+              <option value="3">3 Songs</option>
+              <option value="4">4 Songs</option>
+              <option value="5">5 Songs</option>
+              <option value="6">6 Songs</option>
+              <option value="10+">10+ Songs</option>
+            </select>
+          </div>
+
+          <div id="songs-container"></div>
+
+          <div id="generate-quote-container"
+            style="display: none; text-align: center; margin-top: 40px; margin-bottom: 40px;">
+            <button class="btn btn-gold" onclick="generateProjectSummary()"
+              style="font-size: 11px; padding: 16px 40px; letter-spacing: 3px;">Generate Project Quote →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ PRODUCTION PROCESS STEPS ══ -->
+      <div class="divider" style="margin-top: 80px; margin-bottom: 80px;"></div>
+      <div class="service-block-header reveal" style="margin-bottom: 40px;">
+        <div>
+          <div class="section-label">Our Process</div>
+          <h2 class="service-block-title">How Your Music <em>Comes to Life</em></h2>
+        </div>
+        <div class="service-block-desc">
+          <p>From initial quote to streaming-ready master release, here is what your production journey looks like with Ayush Studios.</p>
+        </div>
+      </div>
+      <div class="process-steps reveal" style="margin-top: 0;">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <div class="process-step-title">Request a Quote</div>
+          <div class="process-step-desc">Select a package or send a custom brief. We'll review within 24 hours.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <div class="process-step-title">Consultation</div>
+          <div class="process-step-desc">We discuss your vision, timeline, references, and creative goals together.
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <div class="process-step-title">Creation</div>
+          <div class="process-step-desc">We step into the studio and make art. You're involved at every stage.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <div class="process-step-title">Delivery</div>
+          <div class="process-step-desc">Final masters delivered in all formats. Release-ready, always.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  </div><!-- end panel-music -->
+
+
+  <!-- ══ MOMENTS MAGIC ══ -->
+  <div id="panel-video" class="service-panel hidden">
+  <section class="service-block" id="video">
+    <div class="container">
+      <div class="service-block-header reveal">
+        <div>
+          <div class="section-label">Moments Magic Studio</div>
+          <h2 class="service-block-title teal">Photography &amp; <em>Videography</em></h2>
+        </div>
+        <div class="service-block-desc">
+          <p>Every frame tells a story. From music videos to weddings to brand shoots, we bring a cinematic eye to every
+            project — capturing emotion, not just images.</p>
+          <p>Professional equipment, creative direction, and meticulous post-production ensure your visuals are as
+            powerful as your music.</p>
+          <a href="contact.html" class="btn btn-outline"
+            style="margin-top:8px; border-color:var(--teal-accent); color:var(--teal-accent);">Book a Shoot →</a>
+        </div>
+      </div>
+      <div class="packages-grid reveal">
+        <div class="package-card">
+          <div class="package-name">Music Video</div>
+          <div class="package-price teal">Single song visual production</div>
+          <ul class="package-features">
+            <li>Concept & storyboard development</li>
+            <li>Full day shoot (up to 8 hours)</li>
+            <li>Professional editing & color grade</li>
+            <li>YouTube / streaming optimized</li>
+            <li>Thumbnail & promo stills</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline"
+            style="width:100%;justify-content:center; border-color:var(--teal-accent); color:var(--teal-accent);">Get a
+            Quote</a>
+        </div>
+        <div class="package-card featured-teal">
+          <div class="featured-badge teal">Signature Service</div>
+          <div class="package-name">Wedding Cinema</div>
+          <div class="package-price teal">Complete wedding coverage</div>
+          <ul class="package-features">
+            <li>Full day photo + video coverage</li>
+            <li>Cinematic wedding film (5–8 min)</li>
+            <li>400+ edited photos delivered</li>
+            <li>Same-day highlight reel</li>
+            <li>Online gallery delivery</li>
+            <li>Pre-wedding shoot included</li>
+          </ul>
+          <a href="contact.html" class="btn"
+            style="width:100%;justify-content:center; background:var(--teal-accent); color:white; padding:16px;">Get a
+            Quote</a>
+        </div>
+        <div class="package-card">
+          <div class="package-name">Events & Brand</div>
+          <div class="package-price teal">Corporate & event coverage</div>
+          <ul class="package-features">
+            <li>Event photography & videography</li>
+            <li>Brand shoot & product photography</li>
+            <li>Social media content packages</li>
+            <li>Fast turnaround (48–72 hrs)</li>
+            <li>High-resolution delivery</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline"
+            style="width:100%;justify-content:center; border-color:var(--teal-accent); color:var(--teal-accent);">Get a
+            Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div><!-- end panel-video -->
+
+  <!-- ══ QUOTE MODAL ══ -->
+  <div id="quote-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeQuoteModal()">×</span>
+      <h3>Request a Quote</h3>
+      <p>Tell us a bit about your project and we'll get back to you with custom details.</p>
+
+      <form id="quote-form" onsubmit="submitQuote(event)">
+        <div class="form-group">
+          <label class="form-label" for="qt-service">Project Outline</label>
+          <textarea id="qt-service" class="q-input" readonly rows="6"
+            style="resize: none; font-family: monospace; font-size: 11px; background: var(--ink); border-color: rgba(201,168,76,0.3); color: var(--muted-light);"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="qt-name">Your Name</label>
+          <input type="text" id="qt-name" placeholder="Full Name" required class="q-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="qt-email">Email Address</label>
+          <input type="email" id="qt-email" placeholder="your@email.com" required class="q-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="qt-desc">Additional Notes & Vision</label>
+          <textarea id="qt-desc" placeholder="Share references, vocal styles, or any timeline details..." required
+            class="q-input" rows="3" style="resize: vertical;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold"
+          style="width: 100%; justify-content: center; margin-top: 16px; font-size: 12px; letter-spacing: 3px;">Submit
+          Project Brief →</button>
+        <div class="modal-fcfs-note">
+          <span class="fcfs-pulse-dot" style="width: 6px; height: 6px;"></span>
+          <span class="modal-fcfs-text">First Come, First Served • Slots Secured Upon Confirmation</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="container fcfs-section-wrap reveal">
+    <div class="fcfs-pill-badge">
+      <span class="fcfs-pulse-ring">
+        <span class="fcfs-pulse-dot"></span>
+      </span>
+      <span class="fcfs-primary-text">First Come, First Served Basis</span>
+      <span class="fcfs-dot-divider">•</span>
+      <span class="fcfs-secondary-text">Studio Slots Strictly Secured Upon Confirmation</span>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    /* ── SERVICE SWITCHER LOGIC ── */
+    function setPillPosition(targetBtn, isTeal) {
+      const pill = document.getElementById('switcher-pill');
+      if (!pill || !targetBtn) return;
+      pill.style.left = targetBtn.offsetLeft + 'px';
+      pill.style.width = targetBtn.offsetWidth + 'px';
+      pill.style.background = isTeal ? 'var(--teal-accent)' : 'var(--gold)';
+    }
+
+    function switchService(which) {
+      const panelMusic = document.getElementById('panel-music');
+      const panelVideo = document.getElementById('panel-video');
+      const btnMusic   = document.getElementById('btn-music');
+      const btnVideo   = document.getElementById('btn-video');
+
+      const isMusic = which === 'music';
+      const activePanel = isMusic ? panelMusic : panelVideo;
+      const inactivePanel = isMusic ? panelVideo : panelMusic;
+      const activeBtn = isMusic ? btnMusic : btnVideo;
+
+      // Hide inactive panel and remove animation class
+      inactivePanel.classList.add('hidden');
+      inactivePanel.classList.remove('studio-revealing');
+
+      // Show active panel and trigger noticeable revealing animation
+      activePanel.classList.remove('hidden', 'studio-revealing');
+      void activePanel.offsetWidth; // Force reflow to restart CSS keyframe animations
+      activePanel.classList.add('studio-revealing');
+
+      // Update button active states
+      btnMusic.classList.toggle('active', isMusic);
+      btnMusic.classList.remove('teal-active');
+      btnVideo.classList.toggle('active', !isMusic);
+      btnVideo.classList.toggle('teal-active', !isMusic);
+
+      setPillPosition(activeBtn, !isMusic);
+
+      // Ensure elements inside active panel are immediately visible with the animation
+      activePanel.querySelectorAll('.reveal, .auto-reveal').forEach(el => {
+        el.classList.add('visible', 'ar-visible');
+      });
+    }
+
+    function initSwitcher() {
+      if (window.location.hash === '#video') {
+        switchService('video');
+      } else {
+        const btnMusic = document.getElementById('btn-music');
+        const panelMusic = document.getElementById('panel-music');
+        setPillPosition(btnMusic, false);
+        if (panelMusic) {
+          panelMusic.classList.add('studio-revealing');
+        }
+      }
+    }
+
+    // Initialize pill position on DOMContentLoaded and load
+    window.addEventListener('DOMContentLoaded', initSwitcher);
+    window.addEventListener('load', initSwitcher);
+    window.addEventListener('resize', () => {
+      const activeBtn = document.querySelector('.switcher-btn.active');
+      if (activeBtn) {
+        const isTeal = activeBtn.id === 'btn-video';
+        setPillPosition(activeBtn, isTeal);
+      }
+    });
+  </script>
+
+  <script>
+    /* ── MUSIC PACKAGES FILTER SYSTEM ── */
+    const MUSIC_PACKAGES = {
+      original: [
+        {
+          name: "Starter",
+          badge: "",
+          price: "Single track recording & mix",
+          featured: false,
+          features: [
+            "Studio recording (1 song)",
+            "Basic arrangement & melody",
+            "Vocal editing & pitch correction",
+            "Stereo mixing & mastering",
+            "2 revision rounds",
+            "WAV + MP3 delivery"
+          ],
+          btnClass: "btn-outline",
+          btnText: "Get a Quote"
+        },
+        {
+          name: "Professional",
+          badge: "Most Popular",
+          price: "Full production · EP ready",
+          featured: true,
+          features: [
+            "Studio recording (up to 3 songs)",
+            "Full music arrangement & orchestration",
+            "Creative vocal coaching & guidance",
+            "Industry-grade mixing & mastering",
+            "Unlimited revision rounds",
+            "Streaming-ready masters & stems"
+          ],
+          btnClass: "btn-gold",
+          btnText: "Get a Quote"
+        },
+        {
+          name: "Album Special",
+          badge: "",
+          price: "Complete album production",
+          featured: false,
+          features: [
+            "10+ song studio production sessions",
+            "Complete bespoke arrangement per track",
+            "Live instruments & session musicians",
+            "Stem mixing & analog mastering",
+            "Artist development & distribution kit",
+            "Priority scheduling & release support"
+          ],
+          btnClass: "btn-outline",
+          btnText: "Get a Quote"
+        }
+      ],
+      cover: [
+        {
+          name: "Acoustic Cover",
+          badge: "",
+          price: "Vocal & single instrument",
+          featured: false,
+          features: [
+            "Lead vocal recording session",
+            "Acoustic guitar or piano backing",
+            "Vocal coaching & tuning",
+            "Clean acoustic stereo mix",
+            "Mastered for YouTube / Spotify",
+            "WAV + High-bitrate MP3"
+          ],
+          btnClass: "btn-outline",
+          btnText: "Get a Quote"
+        },
+        {
+          name: "Studio Cover",
+          badge: "Most Popular",
+          price: "Semi arrangement (up to 4 instruments)",
+          featured: true,
+          features: [
+            "Lead + backing vocal recording",
+            "4-instrument customized backing track",
+            "Vocal alignment & harmony design",
+            "Stereo mixing & punchy master",
+            "Music video audio sync master",
+            "2 revision rounds included"
+          ],
+          btnClass: "btn-gold",
+          btnText: "Get a Quote"
+        },
+        {
+          name: "Cinematic Cover",
+          badge: "",
+          price: "Full creative re-arrangement",
+          featured: false,
+          features: [
+            "Full orchestral / modern re-imagination",
+            "Multi-layer vocal & choir tracking",
+            "Live percussion & melodic instruments",
+            "Commercial-grade stereo master",
+            "Social media teaser audio edits",
+            "Unlimited revisions & stem files"
+          ],
+          btnClass: "btn-outline",
+          btnText: "Get a Quote"
+        }
+      ],
+      commercial: [
+        {
+          name: "Commercial Spot",
+          badge: "",
+          price: "15s – 30s Radio & digital ad",
+          featured: false,
+          features: [
+            "Voiceover recording & clean-up",
+            "Catchy signature melody / hook",
+            "Sound effects & Foley design",
+            "Broadcast-compliant loud mastering",
+            "Fast 48-hour delivery",
+            "Commercial usage release"
+          ],
+          btnClass: "btn-outline",
+          btnText: "Get a Quote"
+        },
+        {
+          name: "Brand Jingle & Anthem",
+          badge: "Signature Choice",
+          price: "45s – 90s Corporate anthem & jingle",
+          featured: true,
+          features: [
+            "Bespoke songwriting & memorable hook",
+            "Lead voice + harmony vocal recording",
+            "Full instrumentation & programming",
+            "Sonic branding sound logo included",
+            "Stereo mixing & broadcast master",
+            "Multi-cutdown versions (15s/30s/60s)"
+          ],
+          btnClass: "btn-gold",
+          btnText: "Get a Quote"
+        },
+        {
+          name: "Complete Audio Suite",
+          badge: "",
+          price: "Full corporate sonic identity",
+          featured: false,
+          features: [
+            "Brand theme song + instrumentals",
+            "Custom UI / Podcast intro & outro audio",
+            "Voiceover casting & studio session",
+            "Dolby Atmos / Stereo delivery",
+            "Perpetual commercial license",
+            "Dedicated project sound engineer"
+          ],
+          btnClass: "btn-outline",
+          btnText: "Get a Quote"
+        }
+      ],
+      voice: [
+        {
+          name: "Poetry & Recitation",
+          badge: "",
+          price: "Expressive recitation production",
+          featured: false,
+          features: [
+            "High-fidelity voice recording",
+            "Breath control & pacing editing",
+            "Emotionally tailored background score",
+            "Warm acoustic mastering",
+            "YouTube / Podcast release ready",
+            "2 revision rounds"
+          ],
+          btnClass: "btn-outline",
+          btnText: "Get a Quote"
+        },
+        {
+          name: "Audio Story & Drama",
+          badge: "Most Popular",
+          price: "Immersive narrative experience",
+          featured: true,
+          features: [
+            "Multi-character voice recording",
+            "Original background music composition",
+            "Rich 3D sound effects & Foley atmosphere",
+            "Dynamic storytelling audio mixing",
+            "Streaming & radio-ready master",
+            "Full episode stem deliverables"
+          ],
+          btnClass: "btn-gold",
+          btnText: "Get a Quote"
+        },
+        {
+          name: "Audiobook Production",
+          badge: "",
+          price: "ACX / Audible compliant mastering",
+          featured: false,
+          features: [
+            "Long-form chapter voice recording",
+            "De-clicking, de-essing & room removal",
+            "Strict -23dB to -18dB RMS compliance",
+            "Chapter splitting & ID3 tagging",
+            "Audio quality proofing check",
+            "100% store approval guarantee"
+          ],
+          btnClass: "btn-outline",
+          btnText: "Get a Quote"
+        }
+      ]
+    };
+
+    function switchMusicPackages(category, btn) {
+      const grid = document.getElementById('music-packages-grid');
+      if (!grid || !MUSIC_PACKAGES[category]) return;
+
+      // Update active button state
+      if (btn) {
+        document.querySelectorAll('.pkg-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+
+      // Smooth fade transition
+      grid.style.opacity = '0';
+      grid.style.transform = 'translateY(12px)';
+
+      setTimeout(() => {
+        const packages = MUSIC_PACKAGES[category];
+        grid.innerHTML = packages.map(pkg => `
+          <div class="package-card ${pkg.featured ? 'featured' : ''}">
+            ${pkg.badge ? `<div class="featured-badge">${pkg.badge}</div>` : ''}
+            <div class="package-name">${pkg.name}</div>
+            <div class="package-price">${pkg.price}</div>
+            <ul class="package-features">
+              ${pkg.features.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+            <a href="contact.html" class="btn ${pkg.btnClass}" style="width:100%;justify-content:center;">${pkg.btnText}</a>
+          </div>
+        `).join('');
+
+        grid.style.opacity = '1';
+        grid.style.transform = 'translateY(0)';
+      }, 180);
+    }
+  </script>
+
+  <script>
+    const categoryMap = {
+      "Original Song": {
+        sections: [
+          {
+            title: "Songwriting & Composition",
+            type: "checkbox",
+            options: ["Music Composition", "Lyrics Writing", "Complete Songwriting (Lyrics & Melody)"]
+          },
+          {
+            title: "Recording",
+            type: "checkbox",
+            options: ["Lead Vocal Recording", "Group Vocal Recording", "Instrument Recording"],
+            note: "Vocal Coaching and Creative Guidance are included with any recording session."
+          },
+          {
+            title: "Music Arrangement & Programming",
+            type: "radio",
+            options: ["Full Music Arrangement", "Semi Music Arrangement (Up to 4 instruments)", "Piano Based Arrangement"]
+          },
+          {
+            title: "Post Production",
+            type: "checkbox",
+            options: ["Vocal Pitch Correction", "Stereo Mixing & Mastering"],
+            note: "Vocal Editing is included with Stereo Mixing & Mastering."
+          }
+        ]
+      },
+      "Cover Song": {
+        sections: [
+          {
+            title: "Recording",
+            type: "checkbox",
+            options: ["Lead Vocal Recording", "Group Vocal Recording", "Instrument Recording"],
+            note: "Vocal Coaching and Creative Guidance are included with recording sessions."
+          },
+          {
+            title: "Music Arrangement & Programming",
+            type: "radio",
+            options: ["Full Music Arrangement", "Semi Music Arrangement (Up to 4 instruments)", "Piano Based Arrangement"]
+          },
+          {
+            title: "Post Production",
+            type: "checkbox",
+            options: ["Vocal Pitch Correction", "Stereo Mixing & Mastering"]
+          }
+        ]
+      },
+      "Advertisements, Commercials & Jingles": {
+        sections: [
+          {
+            title: "Voice Recording / Music",
+            type: "checkbox",
+            options: ["Voice Recording", "Music Composition", "Sound Design", "Mixing & Mastering"]
+          }
+        ]
+      },
+      "Poetry & Recitation": {
+        sections: [
+          {
+            title: "Audio Services",
+            type: "checkbox",
+            options: ["Voice Recording", "Background Music", "Editing", "Mastering"]
+          }
+        ]
+      },
+      "Audio Stories & Audiobooks": {
+        sections: [
+          {
+            title: "Audio Services",
+            type: "checkbox",
+            options: ["Narration Recording", "Character Voice Recording", "Background Music", "Sound Effects", "Editing", "Mastering"]
+          }
+        ]
+      }
+    };
+
+    function generateSongConfigs() {
+      const selector = document.getElementById('num-songs-selector');
+      const container = document.getElementById('songs-container');
+      const quoteBtnContainer = document.getElementById('generate-quote-container');
+
+      let numSongsStr = selector.value;
+      let numSongs = numSongsStr === "10+" ? 10 : parseInt(numSongsStr) || 0;
+
+      container.innerHTML = '';
+
+      if (numSongs > 0) {
+        quoteBtnContainer.style.display = 'block';
+        for (let i = 1; i <= numSongs; i++) {
+          container.appendChild(createSongCard(i));
+        }
+      } else {
+        quoteBtnContainer.style.display = 'none';
+      }
+    }
+
+    function createSongCard(index) {
+      const card = document.createElement('div');
+      card.className = 'custom-build reveal visible';
+      card.style.marginBottom = '24px';
+      card.style.textAlign = 'left';
+
+      card.innerHTML = `
+    <h3 style="margin-bottom: 20px; font-family: var(--font-display); font-size: 20px; color: var(--gold); border-bottom: 0.5px solid rgba(201,168,76,0.15); padding-bottom: 12px;">Track ${index}</h3>
+    
+    <div class="form-group">
+      <label class="form-label">Track Title</label>
+      <input type="text" id="song-${index}-title" class="q-input" placeholder="e.g., Track Title / Working Title">
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label">Category</label>
+      <select id="song-${index}-category" class="q-input" onchange="renderPackageOptions(${index})">
+        <option value="">Select Category</option>
+        <option value="Original Song">Original Song</option>
+        <option value="Cover Song">Cover Song</option>
+        <option value="Advertisements, Commercials & Jingles">Advertisements, Commercials & Jingles</option>
+        <option value="Poetry & Recitation">Poetry & Recitation</option>
+        <option value="Audio Stories & Audiobooks">Audio Stories & Audiobooks</option>
+      </select>
+    </div>
+    
+    <div id="song-${index}-package-type-container" style="display: none;" class="form-group">
+      <label class="form-label">Service Type</label>
+      <div class="scope-options">
+        <label class="toggle-option">
+          <input type="radio" name="song-${index}-package-type" value="Readymade Packages" onchange="renderPackageSpecifics(${index})" checked>
+          <span>Readymade Packages</span>
+        </label>
+        <label class="toggle-option">
+          <input type="radio" name="song-${index}-package-type" value="Custom Package" onchange="renderPackageSpecifics(${index})">
+          <span>Custom Services</span>
+        </label>
+      </div>
+    </div>
+    
+    <div id="song-${index}-package-specifics"></div>
+  `;
+      return card;
+    }
+
+    function renderPackageOptions(index) {
+      const catSelect = document.getElementById(`song-${index}-category`);
+      const ptContainer = document.getElementById(`song-${index}-package-type-container`);
+      const val = catSelect.value;
+
+      if (val) {
+        ptContainer.style.display = 'block';
+        const radios = document.getElementsByName(`song-${index}-package-type`);
+        radios[0].checked = true;
+        renderPackageSpecifics(index);
+      } else {
+        ptContainer.style.display = 'none';
+        document.getElementById(`song-${index}-package-specifics`).innerHTML = '';
+      }
+    }
+
+    function renderPackageSpecifics(index) {
+      const pType = document.querySelector(`input[name="song-${index}-package-type"]:checked`).value;
+      const catSelect = document.getElementById(`song-${index}-category`).value;
+      const container = document.getElementById(`song-${index}-package-specifics`);
+
+      container.innerHTML = '';
+
+      if (pType === "Readymade Packages") {
+        container.innerHTML = `
+      <div class="scope-options" style="margin-top: 16px;">
+        <div class="premium-card" onclick="selectReadymade(this, ${index}, 'Basic')">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <h4 style="margin: 0; font-family: var(--font-display); font-size: 16px; color: var(--cream);">Starter Mix</h4>
+            <input type="radio" name="song-${index}-readymade" value="Basic" style="display: none;">
+          </div>
+          <p style="font-size: 11px; color: var(--muted); margin-top: 8px;">Single track recording + mix/master</p>
+        </div>
+        <div class="premium-card popular" onclick="selectReadymade(this, ${index}, 'Standard')">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <h4 style="margin: 0; font-family: var(--font-display); font-size: 16px; color: var(--cream);">Professional Production</h4>
+            <input type="radio" name="song-${index}-readymade" value="Standard" style="display: none;" checked>
+          </div>
+          <p style="font-size: 11px; color: var(--muted); margin-top: 8px;">Arrangement, recording, mixing, mastering</p>
+        </div>
+        <div class="premium-card" onclick="selectReadymade(this, ${index}, 'Premium')">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <h4 style="margin: 0; font-family: var(--font-display); font-size: 16px; color: var(--cream);">EP / Album Special</h4>
+            <input type="radio" name="song-${index}-readymade" value="Premium" style="display: none;">
+          </div>
+          <p style="font-size: 11px; color: var(--muted); margin-top: 8px;">Full production with streaming-ready masters</p>
+        </div>
+      </div>
+    `;
+      } else {
+        const catData = categoryMap[catSelect];
+        if (!catData) return;
+
+        let html = '<div style="margin-top: 16px; padding: 24px; background: var(--ink); border: 0.5px solid rgba(201,168,76,0.1);">';
+
+        catData.sections.forEach((sec, sIdx) => {
+          html += `<h4 style="margin-bottom: 12px; font-family: var(--font-display); font-size: 15px; color: var(--gold); border-bottom: 0.5px solid rgba(201,168,76,0.06); padding-bottom: 6px;">${sec.title}</h4>`;
+          html += `<div class="scope-options" style="margin-bottom: 16px;">`;
+
+          sec.options.forEach((opt, oIdx) => {
+            const isRadio = sec.type === 'radio';
+            const name = isRadio ? `song-${index}-group-${sIdx}` : `song-${index}-custom[]`;
+            html += `
+          <label class="toggle-option">
+            <input type="${sec.type}" name="${name}" value="${opt}">
+            <span>${opt}</span>
+          </label>
+        `;
+          });
+          html += `</div>`;
+
+          if (sec.note) {
+            html += `<p style="font-size: 11px; color: var(--muted); margin-bottom: 20px; font-style: italic;">* ${sec.note}</p>`;
+          }
+        });
+
+        html += '</div>';
+        container.innerHTML = html;
+      }
+    }
+
+    function selectReadymade(card, index, val) {
+      const radio = card.querySelector('input[type="radio"]');
+      if (radio) radio.checked = true;
+
+      const allCards = card.parentElement.querySelectorAll('.premium-card');
+      allCards.forEach(c => {
+        c.classList.remove('popular');
+      });
+
+      card.classList.add('popular');
+    }
+
+    function generateProjectSummary() {
+      let summary = "AYUSH STUDIOS - CUSTOM MUSIC PRODUCTION BRIEF\n===========================================\n\n";
+      let numSongsStr = document.getElementById('num-songs-selector').value;
+      let numSongs = numSongsStr === "10+" ? 10 : parseInt(numSongsStr) || 0;
+
+      if (numSongs === 0) return;
+
+      summary += `Total Tracks: ${numSongsStr}\n\n`;
+
+      for (let i = 1; i <= numSongs; i++) {
+        const titleInput = document.getElementById(`song-${i}-title`);
+        const catInput = document.getElementById(`song-${i}-category`);
+
+        if (!titleInput || !catInput) continue;
+
+        const title = titleInput.value.trim() || `Track ${i}`;
+        const category = catInput.value;
+
+        summary += `TRACK ${i}: ${title}\n`;
+        if (!category) {
+          summary += `- Category: Not Selected\n\n`;
+          continue;
+        }
+        summary += `- Genre/Format: ${category}\n`;
+
+        const pTypeInput = document.querySelector(`input[name="song-${i}-package-type"]:checked`);
+        const pType = pTypeInput ? pTypeInput.value : '';
+
+        if (pType === "Readymade Packages") {
+          const rPack = document.querySelector(`input[name="song-${i}-readymade"]:checked`);
+          const packName = rPack ? rPack.value : 'Standard';
+          summary += `- Package: ${packName}\n\n`;
+        } else if (pType === "Custom Package") {
+          summary += `- Selected Services:\n`;
+
+          const chks = document.querySelectorAll(`input[name="song-${i}-custom[]"]:checked`);
+          chks.forEach(c => {
+            summary += `  * ${c.value}\n`;
+          });
+
+          const customContainer = document.getElementById(`song-${i}-package-specifics`);
+          const rads = customContainer.querySelectorAll('input[type="radio"]:checked');
+          rads.forEach(r => {
+            summary += `  * ${r.value}\n`;
+          });
+
+          if (chks.length === 0 && rads.length === 0) {
+            summary += `  * None Selected\n`;
+          }
+          summary += `\n`;
+        }
+      }
+
+      document.getElementById('qt-service').value = summary.trim();
+      openQuoteModal();
+    }
+
+    function openQuoteModal() {
+      const modal = document.getElementById('quote-modal');
+      modal.classList.add('active');
+    }
+
+    function closeQuoteModal() {
+      const modal = document.getElementById('quote-modal');
+      modal.classList.remove('active');
+    }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById('quote-modal');
+      if (event.target === modal) {
+        closeQuoteModal();
+      }
+    }
+
+    function submitQuote(e) {
+      e.preventDefault();
+      const outline = document.getElementById('qt-service').value;
+      const name = document.getElementById('qt-name').value;
+      const email = document.getElementById('qt-email').value;
+      const desc = document.getElementById('qt-desc').value;
+
+      const confirmationText = `Thank you, ${name}! Your custom project brief has been captured. We will analyze your specifications and email you at ${email} within 24 hours.`;
+      alert(confirmationText);
+      closeQuoteModal();
+      document.getElementById('quote-form').reset();
+    }
+  </script>
+</body>
+
+</html>
